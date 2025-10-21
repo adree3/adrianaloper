@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Adrián Alonso Pérez — Desarrollador de software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e13;
+    --panel:#0f141b;
+    --soft:#141a22;
+    --text:#e8f0ff;
+    --muted:#9fb0c7;
+    --accent:#22c55e;    /* verde tech */
+    --accent-2:#06b6d4;  /* cian sutil para detalles */
+    --ring: 0 0 0 2px color-mix(in oklab, var(--accent) 50%, transparent);
+    --radius:18px;
+    --shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+    --fs-h1: clamp(2.2rem, 4vw + .5rem, 4rem);
+    --fs-h2: clamp(1.6rem, 2vw + .5rem, 2.4rem);
+    --fs-lg: 1.15rem;
+    --max: 1100px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{background:var(--bg); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; scroll-behavior:smooth}
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%; display:block}
+
+  /* ===== NAV ===== */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter: blur(10px);
+    background: color-mix(in oklab, var(--bg) 70%, transparent);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .nav-wrap{
+    max-width:var(--max); margin:auto; display:flex; align-items:center; gap:22px;
+    padding:14px 18px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.4px;
+  }
+  .brand-dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+  .nav-links{margin-left:auto; display:flex; gap:18px; flex-wrap:wrap}
+  .nav-links a{
+    position:relative; padding:8px 10px; color:var(--muted); font-weight:600; border-radius:10px;
+  }
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a::after{
+    content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+    border-radius:2px;
+  }
+  .nav-links a:is(:hover,.active)::after{transform:scaleX(1)}
+
+  /* ===== HERO ===== */
+  .hero{
+    max-width:var(--max); margin: 40px auto 0; padding: 32px 18px 10px;
+    display:grid; grid-template-columns: 1.1fr .9fr; gap:34px; align-items:center;
+  }
+  .hero-card{
+    background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08);
+    padding:34px; border-radius:var(--radius); box-shadow:var(--shadow);
+  }
+  .kicker{color:var(--accent-2); font-weight:700; letter-spacing:.14em; font-size:.85rem}
+  .hero h1{font-size:var(--fs-h1); line-height:1.05; margin:.35rem 0 .7rem}
+  .hero p{color:var(--muted); font-size:var(--fs-lg)}
+  .cta-wrap{display:flex; gap:14px; margin-top:22px; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+    padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, #1a1f27), #121821);
+    box-shadow: 0 8px 30px rgba(34,197,94,.15);
+  }
+  .btn:hover{box-shadow: 0 12px 36px rgba(34,197,94,.24); transform: translateY(-1px)}
+  .btn.ghost{background:transparent}
+  .taglist{margin-top:18px; display:flex; flex-wrap:wrap; gap:10px}
+  .tag{padding:6px 10px; border-radius:999px; background:#0f1723; border:1px solid rgba(255,255,255,.08); color:var(--muted); font-weight:600; font-size:.9rem}
+
+  .avatar{
+    position:relative; border-radius:16px; overflow:hidden; aspect-ratio: 4/5;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow: 0 30px 70px rgba(0,0,0,.45);
+  }
+  .avatar img{width:100%; height:100%; object-fit:cover; transform:scale(1.01)}
+  .avatar::after{
+    content:""; position:absolute; inset:0; 
+    background: radial-gradient(1200px 600px at -10% 100%, rgba(34,197,94,.18), transparent 60%),
+                radial-gradient(1200px 700px at 120% -10%, rgba(6,182,212,.18), transparent 55%);
+    pointer-events:none;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section{scroll-margin-top:80px}
+  .sec{max-width:var(--max); margin:0 auto; padding: 64px 18px}
+  .sec h2{font-size:var(--fs-h2); margin:0 0 16px}
+  .sec p.lead{color:var(--muted); font-size:1.05rem}
+
+  /* ===== PROYECTOS ===== */
+  .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
+  .card{
+    grid-column: span 12; padding:18px; border-radius:16px;
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow);
+    display:grid; grid-template-columns: 1.1fr 1fr; gap:16px; align-items:stretch;
+  }
+  .card .thumb{
+    position:relative; overflow:hidden; border-radius:12px; background:#0a0d12;
+    border:1px solid rgba(255,255,255,.06)
+  }
+  .card .thumb img{width:100%; height:100%; object-fit:cover; transform:scale(1); transition: transform .5s ease}
+  .card:hover .thumb img{transform:scale(1.06)}
+  .card h3{margin:.2rem 0 .4rem}
+  .card p{color:var(--muted)}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+  .chip{font-size:.85rem; padding:6px 10px; border-radius:999px; background:#0e1520; border:1px solid rgba(255,255,255,.08)}
+  .actions{display:flex; gap:12px; margin-top:auto}
+  .btn.small{padding:9px 12px; font-size:.92rem}
+
+  /* ===== TIMELINE ===== */
+  .timeline{position:relative; margin-top:26px}
+  .timeline::before{content:""; position:absolute; left:14px; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent), transparent)}
+  .i{
+    position:relative; margin-left:34px; margin-bottom:22px; padding:14px 16px; border-radius:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .i::before{content:""; position:absolute; left:-24px; top:16px; width:10px; height:10px; border-radius:50%; background:var(--accent)}
+  .i h4{margin:0 0 6px}
+  .i .meta{color:var(--muted); font-size:.95rem}
+
+  /* ===== CONTACTO ===== */
+  .contact{
+    display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:18px;
+  }
+  .panel{
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px; box-shadow:var(--shadow)
+  }
+  form .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  label{display:block; font-weight:600; margin: 10px 0 6px}
+  input,textarea,select{
+    width:100%; padding:12px 12px; border-radius:12px; color:var(--text);
+    background:#0c1117; border:1px solid rgba(255,255,255,.08); outline:none;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  input:focus,textarea:focus,select:focus{border-color: var(--accent); box-shadow: var(--ring)}
+  textarea{min-height:140px; resize:vertical}
+  .ok{display:none; margin-top:10px; color:var(--accent); font-weight:700}
+  .social{display:flex; gap:12px; flex-wrap:wrap}
+  .social a{padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.08); color:var(--muted)}
+  .social a:hover{color:var(--text); border-color: rgba(255,255,255,.18)}
+
+  /* ===== FOOTER ===== */
+  footer{max-width:var(--max); margin:32px auto 70px; padding: 0 18px; color:var(--muted)}
+  .sep{height:1px; background:rgba(255,255,255,.06); margin:18px 0 14px}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0; transform: translateY(12px); transition: all .6s ease}
+  .reveal.show{opacity:1; transform:none}
+
+  @media (max-width: 980px){
+    .hero{grid-template-columns:1fr; gap:22px}
+    .card{grid-template-columns:1fr}
+    .contact{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-wrap">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>Adrián Alonso Pérez</span>
+      </div>
+      <div class="nav-links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#estudios">Estudios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-card reveal">
+      <span class="kicker">DESARROLLADOR DE SOFTWARE</span>
+      <h1>Soy Adrián Alonso, desarrollador de software</h1>
+      <p>Valladolid, España. Especializado en Java/Spring Boot y Angular, con experiencia también en Python, Flutter y desarrollo web moderno.</p>
+
+      <div class="cta-wrap">
+        <a class="btn" href="#proyectos">Ver proyectos</a>
+        <a class="btn ghost" href="https://github.com/adree3" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <div class="taglist">
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Angular</span>
+        <span class="tag">Flutter</span><span class="tag">Python</span><span class="tag">HTML/CSS/JS</span>
+      </div>
+    </div>
+
+    <div class="avatar reveal" style="--delay:150ms">
+      <img src="assets/adrian.jpg" alt="Adrián Alonso" />
+    </div>
+  </header>
+
+  <section id="sobre-mi" class="sec">
+    <h2 class="reveal">Sobre mí</h2>
+    <p class="lead reveal">Soy desarrollador de software con enfoque en construir productos limpios, accesibles y mantenibles. Me motiva aprender rápido, trabajar en equipo y entregar valor real desde el código.</p>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="sec">
+    <h2 class="reveal">Proyectos</h2>
+    <div class="grid">
+      <!-- Afisla -->
+      <article class="card reveal">
+        <div class="thumb">
+          <img src="assets/afisla.png" alt="Web Afisla Gestión">
+        </div>
+        <div style="display:flex; flex-direction:column">
+          <h3>Web Afisla Gestión</h3>
+          <p>Sitio corporativo moderno y responsive para gestoría, con navegación SPA ligera, componentes reutilizables y diseño elegante.</p>
+          <div class="chips">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+          </div>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/adree3/afislagestion" target="_blank" rel="noopener">Repositorio</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Fichaje -->
+      <article class="card reveal">
+        <div class="thumb">
+          <img src="assets/fichaje.png" alt="App Control Horario">
+        </div>
+        <div style="display:flex; flex-direction:column">
+          <h3>App Control Horario</h3>
+          <p>Aplicación para gestión de ausencias y fichaje. UI clara con filtros, búsqueda y generación de informes.</p>
+          <div class="chips">
+            <span class="chip">Flutter</span><span class="chip">Dart</span>
+          </div>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/adree3/RiberPublicFichajeApp.git" target="_blank" rel="noopener">Repositorio</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia" class="sec">
+    <h2 class="reveal">Experiencia</h2>
+    <div class="timeline">
+      <div class="i reveal">
+        <h4>Desarrollador de Software — Getronics</h4>
+        <div class="meta">4 meses · Java + Spring Boot · Angular (Proyecto “Stilus”, Junta de Castilla y León)</div>
+        <p>Desarrollo de backend (APIs REST, seguridad, validaciones) y apoyo en el front con Angular. Trabajo colaborativo en equipo ágil.</p>
+      </div>
+      <div class="i reveal">
+        <h4>Técnico Informático — Sisconect</h4>
+        <div class="meta">4 meses · Castilla y León</div>
+        <p>Instalación y reparación de equipos en ruta, diagnóstico y resolución de incidencias.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTUDIOS -->
+  <section id="estudios" class="sec">
+    <h2 class="reveal">Estudios</h2>
+    <div class="timeline">
+      <div class="i reveal">
+        <h4>Curso de Especialización: Inteligencia Artificial y Big Data</h4>
+        <div class="meta">En curso</div>
+      </div>
+      <div class="i reveal">
+        <h4>Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM)</h4>
+      </div>
+      <div class="i reveal">
+        <h4>Grado Medio: Sistemas Microinformáticos y Redes</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="sec">
+    <h2 class="reveal">Contacto</h2>
+    <div class="contact">
+      <div class="panel reveal">
+        <h3>Hablemos</h3>
+        <p class="lead">¿Tienes una idea o vacante? Estoy abierto a propuestas y colaboraciones.</p>
+        <div class="social" style="margin-top:12px">
+          <a href="mailto:adrianalonso200@gmail.com">📧 adrianalonso200@gmail.com</a>
+          <a href="https://www.linkedin.com/in/adrian-alonso-perez-38894a2aa" target="_blank" rel="noopener">in/Adrián Alonso</a>
+          <a href="https://github.com/adree3" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <form class="panel reveal" id="contact-form">
+        <div class="row">
+          <div>
+            <label for="name">Nombre</label>
+            <input id="name" name="name" required placeholder="Tu nombre">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="tu@email.com">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="topic">Interés</label>
+            <select id="topic" name="topic" required>
+              <option value="">Selecciona…</option>
+              <option value="proyecto">Nuevo proyecto</option>
+              <option value="colaboracion">Colaboración</option>
+              <option value="empleo">Oferta laboral</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div>
+            <label for="city">Ciudad (opcional)</label>
+            <input id="city" name="city" placeholder="Valladolid">
+          </div>
+        </div>
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" required placeholder="Cuéntame brevemente…"></textarea>
+        <button id="send" type="button" class="btn" style="margin-top:12px">Enviar</button>
+        <div id="ok" class="ok">¡Mensaje enviado! Te contactaré muy pronto.</div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="sec" style="padding-top:20px">
+    <div class="sep"></div>
+    <div style="display:flex; align-items:center; gap:10px; justify-content:space-between; flex-wrap:wrap">
+      <div style="display:flex; align-items:center; gap:10px">
+        <span class="brand-dot"></span><strong>Adrián Alonso</strong>
+      </div>
+      <small>© <span id="y"></span> — Hecho con ♥ y buen café.</small>
+    </div>
+  </footer>
+
+<!-- EmailJS (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // ==== NAV scroll spy & reveal animations
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const id = '#'+e.target.id;
+        const active = links.find(l=>l.getAttribute('href')===id);
+        if(active) active.classList.add('active');
+      }
+    })
+  }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+  sections.forEach(s=>io.observe(s));
+
+  // reveal
+  const rev = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); rev.unobserve(e.target); } });
+  }, {threshold: .12});
+  document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
+
+  // year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // ==== EmailJS
+  // 1) Rellena tus claves:
+  //    - PUBLIC_KEY: el "Public Key" de tu cuenta (ej: "3Nxxxxx...").
+  //    - SERVICE_ID: el "Email Service ID" (ej: "service_xxx").
+  //    - TEMPLATE_ID: tu plantilla (ej: "template_yyyy").
+  const PUBLIC_KEY  = "PON_AQUI_TU_PUBLIC_KEY";
+  const SERVICE_ID  = "PON_AQUI_TU_SERVICE_ID";
+  const TEMPLATE_ID = "PON_AQUI_TU_TEMPLATE_ID";
+
+  emailjs.init({ publicKey: PUBLIC_KEY });
+
+  const btn   = document.getElementById('send');
+  const form  = document.getElementById('contact-form');
+  const okMsg = document.getElementById('ok');
+
+  btn.addEventListener('click', ()=>{
+    // validación sencilla
+    if(!form.reportValidity()) return;
+
+    btn.disabled = true; btn.textContent = "Enviando…";
+
+    // Campos que llegarán a tu plantilla de EmailJS
+    const data = {
+      name:    form.name.value,
+      email:   form.email.value,
+      topic:   form.topic.value,
+      city:    form.city.value,
+      message: form.message.value,
+      sent_at: new Date().toLocaleString()
+    };
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
+      .then(()=>{
+        okMsg.style.display = 'block';
+        form.reset();
+      })
+      .catch(err=>{
+        alert("No se pudo enviar el mensaje. Revisa las credenciales de EmailJS.\n\n" + JSON.stringify(err));
+      })
+      .finally(()=>{
+        btn.disabled = false; btn.textContent = "Enviar";
+      });
+  });
+</script>
+</body>
+</html>
