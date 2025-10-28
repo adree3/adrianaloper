@@ -69,3 +69,41 @@ btn.addEventListener('click', ()=>{
       btn.textContent = "Enviar";
     });
 });
+// ==== ANIMACIÓN DE TEXTO ====
+const roles = [
+  "Desarrollador Backend",
+  "Desarrollador de Aplicaciones",
+  "Desarrollador de Software"
+];
+
+const textElement = document.getElementById("typing-text");
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+  const current = roles[roleIndex];
+  const visible = current.substring(0, charIndex);
+  textElement.textContent = visible;
+
+  if (!deleting && charIndex < current.length) {
+    charIndex++;
+    setTimeout(typeEffect, 50); // velocidad de escritura (más rápido)
+  } 
+  else if (deleting && charIndex > 0) {
+    charIndex--;
+    setTimeout(typeEffect, 35); // velocidad de borrado (aún más rápido)
+  } 
+  else if (!deleting && charIndex === current.length) {
+    // espera un poco antes de borrar
+    setTimeout(() => { deleting = true; typeEffect(); }, 1500);
+  } 
+  else if (deleting && charIndex === 0) {
+    // pasa al siguiente texto
+    deleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    setTimeout(typeEffect, 300);
+  }
+}
+
+if (textElement) typeEffect();

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Adrián Alonso Pérez — Desarrollador de software</title>
+        <title>Adrián Alonso Pérez — Desarrollador</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -25,7 +25,7 @@
                 <a href="#experiencia">Experiencia</a>
                 <a href="#estudios">Estudios</a>
                 <a href="#contacto">Contacto</a>
-                <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download>🧾 CV</a>
+                <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download><i class="fa-solid fa-download"></i> CV</a>
             </div>
             </div>
         </nav>
@@ -33,9 +33,9 @@
         <!-- HERO -->
         <header id="inicio" class="hero">
             <div class="hero-card reveal">
-                <span class="kicker">DESARROLLADOR DE SOFTWARE</span>
+                <span class="kicker" id="typing-text"></span>
                 <h1>Soy Adrián Alonso Pérez</h1>
-                <p>Valladolid, España. Especializado en Java/Spring Boot y Angular, con experiencia también en Python, Flutter y desarrollo web moderno.</p>
+                <p>Valladolid, España. Especializado en Java/Spring Boot, con experiencia también en Python, Flutter y Angular.</p>
 
                 <div class="cta-wrap">
                     <a class="btn" href="#proyectos">Ver proyectos</a>
@@ -65,31 +65,59 @@
 
         <section id="sobre-mi" class="sec">
             <h2 class="reveal">Sobre mí</h2>
-            <p class="lead reveal">Soy técnico superior de desarrollo de aplicaciones multiplataforma, especializado en desarrollador backend. . Me motiva aprender rápido, trabajar en equipo y entregar valor real desde el código.</p>
+            <div class="about-box reveal">
+                <p>
+                Soy un <span class="highlight">desarrollador</span> con una mentalidad práctica y resolutiva. 
+                Lo que más disfruto del desarrollo es enfrentarme a un <span class="highlight">problema</span> y encontrar la mejor forma de resolverlo.
+                </p>
+                <p>
+                Me considero una persona <span class="highlight">autodidacta</span> y <span class="highlight">perfeccionista</span>, siempre buscando aprender algo nuevo y mejorar lo que ya sé. 
+                Trabajo bien en <span class="highlight">equipo</span> y me gusta colaborar, compartir ideas y aprender de otros compañeros.
+                </p>
+                <p>
+                Mis preferencias se inclinan hacia el <span class="highlight">desarrollo backend</span> o <span class="highlight">fullstack</span>, aunque también disfruto trabajando en el <span class="highlight">front</span> cuando el proyecto lo requiere. 
+                Actualmente busco seguir creciendo y aprendiendo en el sector tecnológico, aportando mi entusiasmo y dedicación en cada proyecto.
+                </p>
+                <p>
+                Además, tengo un nivel de <span class="highlight">inglés B2</span>, lo que me permite comunicarme y trabajar en entornos internacionales con soltura.
+                </p>
+                <p>
+                Fuera del trabajo me gusta <span class="highlight">ejercitarme</span> físicamente en el <span class="highlight">gimnasio</span> y socializar con amigos jugando al <span class="highlight">pádel</span>.
+                </p>
+            </div>
         </section>
+
 
         <section id="proyectos" class="sec">
             <h2 class="reveal">Proyectos</h2>
             <div class="grid">
-            <article class="card reveal">
-                <div class="thumb"><img src="assets/afisla.png" alt="Web Afisla Gestión"></div>
-                <div style="display:flex; flex-direction:column">
-                <h3>Web Afisla Gestión</h3>
-                <p>Sitio corporativo moderno y responsive para gestoría, con navegación SPA ligera, componentes reutilizables y diseño elegante.</p>
-                <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
-                <div class="actions"><a class="btn small" href="https://github.com/adree3/afislagestion" target="_blank">Repositorio</a></div>
-                </div>
-            </article>
+                <article class="card reveal">
+                    <div class="thumb"><img src="assets/afisla.png" alt="Web Afisla Gestión"></div>
+                    <div style="display:flex; flex-direction:column">
+                    <h3>Web Afisla Gestión</h3>
+                    <p>Desarrollo de página web corporativa moderna y responsive para la gestoría Afisla, con componentes reutilizables y diseño elegante. Realización del SEO correspondiente. </p>
+                    <div class="chips">
+                        <span class="tag"><i class="devicon-html5-plain colored"></i> Html</span>
+                        <span class="tag"><i class="devicon-css3-plain colored"></i> Css</span>
+                        <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+                    </div>
+                    <div class="actions"><a class="btn small" href="https://github.com/adree3/afislagestion" target="_blank">Repositorio</a></div>
+                    </div>
+                </article>
 
-            <article class="card reveal">
-                <div class="thumb"><img src="assets/fichaje.png" alt="App Control Horario"></div>
-                <div style="display:flex; flex-direction:column">
-                <h3>App Control Horario</h3>
-                <p>Aplicación para gestión de ausencias y fichaje. UI clara con filtros, búsqueda y generación de informes.</p>
-                <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span></div>
-                <div class="actions"><a class="btn small" href="https://github.com/adree3/RiberPublicFichajeApp.git" target="_blank">Repositorio</a></div>
-                </div>
-            </article>
+                <article class="card reveal">
+                    <div class="thumb"><img src="assets/fichaje.png" alt="App Control Horario"></div>
+                    <div style="display:flex; flex-direction:column">
+                    <h3>App Control Horario</h3>
+                    <p>Aplicación para gestión de ausencias y fichaje. UI clara con filtros, búsqueda y generación de informes.</p>
+                    <div class="chips">
+                        <span class="tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
+                        <span class="tag"><i class="devicon-java-plain colored"></i> Java</span>
+                        <span class="tag"><i class="devicon-spring-plain colored"></i> Spring Boot</span>                
+                    </div>
+                    <div class="actions"><a class="btn small" href="https://github.com/adree3/RiberPublicFichajeApp.git" target="_blank">Repositorio</a></div>
+                    </div>
+                </article>
             </div>
         </section>
 
