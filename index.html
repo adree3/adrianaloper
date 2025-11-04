@@ -11,31 +11,53 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <!-- NAV -->
         <nav class="nav">
             <div class="nav-wrap">
-            <div class="brand">
-                <span class="brand-dot"></span>
-                <span>Adrián Alonso Pérez</span>
+                <div class="brand">
+                    <span class="brand-dot"></span>
+                    <span>Adrián Alonso Pérez</span>
+                </div>
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#sobre-mi">Sobre mí</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#experiencia">Experiencia</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download><i class="fa-solid fa-download"></i> CV</a>
+                </div>
             </div>
-            <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#sobre-mi">Sobre mí</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#experiencia">Experiencia</a>
-                <a href="#estudios">Estudios</a>
-                <a href="#contacto">Contacto</a>
-                <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download><i class="fa-solid fa-download"></i> CV</a>
+
+            <div class="side-menu">
+                <div class="side-header">
+                    <span class="brand-dot"></span>
+                    <span class="brand-name">Adrián Alonso Pérez</span>
+                    <button class="close-menu" aria-label="Cerrar menú">
+                    <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="side-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#sobre-mi">Sobre mí</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#experiencia">Experiencia</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download>
+                    <i class="fa-solid fa-download"></i> CV
+                    </a>
+                </div>
             </div>
-            </div>
+
+            <div class="overlay"></div>
         </nav>
 
-        <!-- HERO -->
         <header id="inicio" class="hero">
             <div class="hero-card reveal">
                 <span class="kicker" id="typing-text"></span>
                 <h1>Soy Adrián Alonso Pérez</h1>
-                <p>Valladolid, España. Especializado en Java/Spring Boot, con experiencia también en Python, Flutter y Angular.</p>
+                <p>Valladolid, España. Especializado en backend con Java + Spring Boot, con formación también en Python, Flutter y Angular.</p>
 
                 <div class="cta-wrap">
                     <a class="btn" href="#proyectos">Ver proyectos</a>
@@ -53,6 +75,7 @@
                     <span class="tag"><i class="devicon-html5-plain colored"></i> Html</span>
                     <span class="tag"><i class="devicon-css3-plain colored"></i> Css</span>
                     <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+                    <span class="tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>
                 </div>
 
             </div>
@@ -67,22 +90,22 @@
             <h2 class="reveal">Sobre mí</h2>
             <div class="about-box reveal">
                 <p>
-                Soy un <span class="highlight">desarrollador</span> con una mentalidad práctica y resolutiva. 
-                Lo que más disfruto del desarrollo es enfrentarme a un <span class="highlight">problema</span> y encontrar la mejor forma de resolverlo.
+                    Soy un <span class="highlight">desarrollador</span> con una mentalidad práctica y resolutiva. 
+                    Lo que más disfruto del desarrollo es enfrentarme a un <span class="highlight">problema</span> y encontrar la mejor forma de resolverlo.
                 </p>
                 <p>
-                Me considero una persona <span class="highlight">autodidacta</span> y <span class="highlight">perfeccionista</span>, siempre buscando aprender algo nuevo y mejorar lo que ya sé. 
-                Trabajo bien en <span class="highlight">equipo</span> y me gusta colaborar, compartir ideas y aprender de otros compañeros.
+                    Me considero una persona <span class="highlight">autodidacta</span> y <span class="highlight">perfeccionista</span>, siempre buscando aprender algo nuevo y mejorar lo que ya sé. 
+                    Trabajo bien en <span class="highlight">equipo</span> y me gusta colaborar, compartir ideas y aprender de otros compañeros.
                 </p>
                 <p>
-                Mis preferencias se inclinan hacia el <span class="highlight">desarrollo backend</span> o <span class="highlight">fullstack</span>, aunque también disfruto trabajando en el <span class="highlight">front</span> cuando el proyecto lo requiere. 
-                Actualmente busco seguir creciendo y aprendiendo en el sector tecnológico, aportando mi entusiasmo y dedicación en cada proyecto.
+                    Mis preferencias se inclinan hacia el <span class="highlight">desarrollo backend</span> o <span class="highlight">fullstack</span>, aunque también disfruto trabajando en el <span class="highlight">front</span> cuando el proyecto lo requiere. 
+                    Actualmente busco seguir creciendo y aprendiendo en el sector tecnológico, aportando mi entusiasmo y dedicación en cada proyecto.
                 </p>
                 <p>
-                Además, tengo un nivel de <span class="highlight">inglés B2</span>, lo que me permite comunicarme y trabajar en entornos internacionales con soltura.
+                Además, tengo un nivel de <span class="highlight">inglés B2</span>, lo que me permite comunicarme y trabajar en entornos internacionales con soltura y sin mucho problema.
                 </p>
                 <p>
-                Fuera del trabajo me gusta <span class="highlight">ejercitarme</span> físicamente en el <span class="highlight">gimnasio</span> y socializar con amigos jugando al <span class="highlight">pádel</span>.
+                    Fuera del trabajo me gusta <span class="highlight">ejercitarme</span> físicamente en el <span class="highlight">gimnasio</span> y socializar con amigos jugando al <span class="highlight">pádel</span> y <span class="highlight">fútbol</span>.
                 </p>
             </div>
         </section>
@@ -92,30 +115,36 @@
             <h2 class="reveal">Proyectos</h2>
             <div class="grid">
                 <article class="card reveal">
-                    <div class="thumb"><img src="assets/afisla.png" alt="Web Afisla Gestión"></div>
-                    <div style="display:flex; flex-direction:column">
-                    <h3>Web Afisla Gestión</h3>
-                    <p>Desarrollo de página web corporativa moderna y responsive para la gestoría Afisla, con componentes reutilizables y diseño elegante. Realización del SEO correspondiente. </p>
-                    <div class="chips">
-                        <span class="tag"><i class="devicon-html5-plain colored"></i> Html</span>
-                        <span class="tag"><i class="devicon-css3-plain colored"></i> Css</span>
-                        <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
-                    </div>
-                    <div class="actions"><a class="btn small" href="https://github.com/adree3/afislagestion" target="_blank">Repositorio</a></div>
-                    </div>
-                </article>
-
-                <article class="card reveal">
                     <div class="thumb"><img src="assets/fichaje.png" alt="App Control Horario"></div>
                     <div style="display:flex; flex-direction:column">
-                    <h3>App Control Horario</h3>
-                    <p>Aplicación para gestión de ausencias y fichaje. UI clara con filtros, búsqueda y generación de informes.</p>
-                    <div class="chips">
-                        <span class="tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
-                        <span class="tag"><i class="devicon-java-plain colored"></i> Java</span>
-                        <span class="tag"><i class="devicon-spring-plain colored"></i> Spring Boot</span>                
+                        <h3>RiberPublic Fichajes</h3>
+                        <p>Aplicación multiplataforma para la gestión horaria y el registro de fichajes con NFC y Geolocalización. UI clara con filtros, búsqueda y generación de informes.</p>
+                        <div class="chips">
+                            <span class="tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
+                            <span class="tag"><i class="devicon-java-plain colored"></i> Java</span>
+                            <span class="tag"><i class="devicon-spring-plain colored"></i> Spring Boot</span>        
+                            <span class="tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>        
+                        </div>
+                        <div class="actions">
+                            <a class="btn small" href="https://github.com/adree3/RiberPublicFichajeApp.git" target="_blank"><i class="fa-brands fa-github"></i>Repositorio</a>
+                            <a class="btn small info" href="proyectos/riberpublicfichajes/riberpublicfichajes.html">Leer más</a>
+                        </div>
                     </div>
-                    <div class="actions"><a class="btn small" href="https://github.com/adree3/RiberPublicFichajeApp.git" target="_blank">Repositorio</a></div>
+                </article>
+                <article class="card reveal">
+                    <div class="thumb"><img src="assets/afisla.png" alt="Web Afisla Gestión"></div>
+                    <div style="display:flex; flex-direction:column">
+                        <h3>Web Afisla Gestión</h3>
+                        <p>Desarrollo de página web corporativa moderna y responsive para la gestoría Afisla, con componentes reutilizables y diseño elegante. Realización del SEO correspondiente. </p>
+                        <div class="chips">
+                            <span class="tag"><i class="devicon-html5-plain colored"></i> Html</span>
+                            <span class="tag"><i class="devicon-css3-plain colored"></i> Css</span>
+                            <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+                        </div>
+                        <div class="actions">
+                            <a class="btn small" href="https://adree3.github.io/afislagestion/" target="_blank">🌐 Sitio web</a>
+                            <a class="btn small info" href="proyectos/afisla/afisla.html">Leer más</a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -125,24 +154,30 @@
             <h2 class="reveal">Experiencia</h2>
             <div class="timeline">
             <div class="i reveal">
+                <h4>Curso de Especialización: Inteligencia Artificial y Big Data</h4>
+                <div class="meta">IES Ribera de Castilla · 09/2025 - En curso</div>
+            </div>
+            <div class="i reveal">
                 <h4>Desarrollador de Software — Getronics</h4>
                 <div class="meta">4 meses · Java + Spring Boot · Angular (Proyecto “Stilus”, Junta de Castilla y León)</div>
                 <p>Desarrollo de backend (APIs REST, seguridad, validaciones) y apoyo en el front con Angular. Trabajo colaborativo en equipo ágil.</p>
             </div>
             <div class="i reveal">
+                <h4>Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM)</h4>
+                <div class="meta">IES Ribera de Castilla · 09/2023 - 06/2025</div>
+            </div>
+
+            <div class="i reveal">
                 <h4>Técnico Informático — Sisconect</h4>
-                <div class="meta">4 meses · Castilla y León</div>
+                <div class="meta">4 meses · Instalador y mantenimiento de equipos informáticos e impresoras</div>
                 <p>Instalación y reparación de equipos en ruta, diagnóstico y resolución de incidencias.</p>
             </div>
+            <div class="i reveal">
+                <h4>Grado Medio: Sistemas Microinformáticos y Redes (SMR)</h4>
+                <div class="meta">IES Ribera de Castilla · 09/2021 - 06/2023</div>
             </div>
-        </section>
+            
 
-        <section id="estudios" class="sec">
-            <h2 class="reveal">Estudios</h2>
-            <div class="timeline">
-            <div class="i reveal"><h4>Curso de Especialización: Inteligencia Artificial y Big Data</h4><div class="meta">En curso</div></div>
-            <div class="i reveal"><h4>Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM)</h4></div>
-            <div class="i reveal"><h4>Grado Medio: Sistemas Microinformáticos y Redes</h4></div>
             </div>
         </section>
 
@@ -178,6 +213,13 @@
             <small>© <span id="y"></span> — Hecho por Adrián Alonso Pérez.</small>
             </div>
         </footer>
+        <a href="assets/AdrianAlonsoCV.pdf" 
+            class="fab-cv" 
+            target="_blank" 
+            download 
+            aria-label="Descargar CV">
+            <i class="fa-solid fa-download"></i>
+        </a>
 
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <script src="main.js"></script>

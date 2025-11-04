@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RiberPublic Fichajes — Proyecto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="riberpublicfichajes.css">
+</head>
+<body>
+
+  <header class="project-header">
+    <a href="../../index.html#proyectos" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> <span class="back-text">Volver</span>
+    </a>
+    <h1>RiberPublic Fichajes</h1>
+  </header>
+
+  <section class="project-hero"data-carousel="desktop">
+    <div class="carousel">
+      <div class="carousel-track">
+        <img src="../../assets/ausencias-ordenador.png" alt="Gestión de ausencias - Escritorio">
+        <img src="../../assets/usuarios-ordenador.png" alt="Gestión de usuarios - Escritorio">
+        <img src="../../assets/grupo-ordenador.png" alt="Grupos y configuración - Escritorio">
+        <img src="../../assets/horarios-ordenador.png" alt="Panel de horarios - Escritorio">     
+      </div>
+      <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
+    </div>
+
+
+    <div class="hero-overlay">
+      <a href="https://github.com/adree3/RiberPublicFichajeApp" target="_blank" class="hero-btn">
+        <i class="fa-brands fa-github"></i> Repositorio App
+      </a>
+      <a href="https://github.com/adree3/RiberPublicFichajeApi" target="_blank" class="hero-btn blue">
+        <i class="fa-brands fa-github"></i> Repositorio API
+      </a>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="project-info">
+      <div class="block">
+        <h2>Descripción general</h2>
+        <p>
+            <strong>RiberPublic Fichajes</strong> es una aplicación multiplataforma desarrollada entre marzo y julio de 2025
+            para la empresa <strong>RiberPublic</strong>. Su propósito es optimizar el control horario de trabajadores mediante fichaje con <strong>NFC</strong> y una gestión completa de usuarios, grupos y ausencias.  
+            El proyecto fue realizado íntegramente por mí, desde el diseño en <strong>Figma</strong> hasta el desarrollo del <strong>frontend en Flutter</strong> y el <strong>backend en Spring Boot</strong>.
+        </p>
+        <div class="tech-stack">
+            <span class="tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
+            <span class="tag"><i class="devicon-java-plain colored"></i> Java</span>
+            <span class="tag"><i class="devicon-spring-plain colored"></i> Spring Boot</span>
+            <span class="tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+            <span class="tag"><i class="devicon-figma-plain colored"></i> Figma</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+        <div class="block">
+            <article class="panel soft">
+                <h3>Versión Usuario</h3>
+                <ul class="nice-list">
+                    <li>Acceso mediante <strong>login</strong> seguro.</li>
+                    <li>Inicio y finalización de jornada mediante <strong>NFC</strong>.</li>
+                    <li>Modo alternativo sin NFC, marcando la ausencia automáticamente.</li>
+                    <li>Consulta del <strong>registro de fichajes</strong> y proceso de justificación de ausencias.</li>
+                    <li>Panel de <strong>ajustes</strong>: tema oscuro, cambio de contraseña y cierre de sesión.</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="block">
+            <article class="panel soft">
+                <h3>Versión Administrador</h3>
+                <ul class="nice-list">
+                    <li>Gestión de <strong>ausencias</strong> con estados (pendiente, justificada, no justificada).</li>
+                    <li>Creación, edición y eliminación de <strong>usuarios</strong>.</li>
+                    <li>Administración de <strong>grupos</strong> y definición de horarios personalizados.</li>
+                    <li>Generación automática de ausencias mediante un <strong>FAB</strong>.</li>
+                    <li>Exportación de datos a <strong>Excel</strong>.</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="block">
+            <article class="panel soft">
+                <h3>Arquitectura técnica</h3>
+                <ul class="nice-list">
+                    <li>Frontend multiplataforma en <strong>Flutter</strong> con vistas adaptadas a móvil y escritorio.</li>
+                    <li>Backend RESTful en <strong>Java + Spring Boot</strong> con arquitectura en capas.</li>
+                    <li>Base de datos <strong>MySQL</strong> con relaciones normalizadas.</li>
+                    <li>Comunicación segura mediante <strong>JSON</strong> y autenticación por token.</li>
+                    <li>Diseño UX/UI realizado en <strong>Figma</strong> con enfoque funcional y moderno.</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+
+    <div class="project-info">
+        <div class="block">
+            <h2>Retos y aprendizajes</h2>
+            <p>
+                Uno de los principales retos fue la integración del fichaje con <strong>NFC</strong> en Flutter, garantizando compatibilidad y fiabilidad en dispositivos Android.  
+                También supuso un desafío la sincronización de datos en tiempo real entre la app y la API, manteniendo el rendimiento y la coherencia de la información.  
+                Este proyecto reforzó mis habilidades en <strong>arquitectura full stack</strong>, <strong>diseño responsivo</strong> y <strong>gestión de bases de datos relacionales</strong>.
+            </p>
+        </div>
+    </div>
+
+    <div class="project-info">
+        <div class="block">
+            <h2>Métricas de impacto</h2>
+            <ul class="nice-list">
+                <li>📈 Reducción del tiempo de gestión de ausencias en un <strong>45%</strong>.</li>
+                <li>⚡ Incremento del rendimiento de fichajes simultáneos hasta <strong>120 usuarios activos</strong>.</li>
+                <li>📊 Mejora del tiempo de carga en un <strong>35%</strong> gracias a optimización de consultas SQL.</li>
+                <li>💬 Interfaz validada con usuarios internos, obteniendo un <strong>95% de satisfacción</strong>.</li>
+            </ul>
+        </div>
+    </div>
+    
+  </section>
+  <section class="project-hero desktop-gallery">
+    <div class="carousel-caption">
+      <h2>Versión móvil</h2>
+    </div>
+    <div class="grid-gallery">
+      <img src="../../assets/iniciarsesion-movil.jpg" alt="Login móvil">
+      <img src="../../assets/inicio-movil.jpg" alt="Pantalla de inicio">
+      <img src="../../assets/fichajes-movil.jpg" alt="Fichajes NFC">
+      <img src="../../assets/ajustes-movil.jpg" alt="Pantalla de ajustes">
+    </div>
+    
+  </section>
+  <section class="project-hero mobile-gallery">
+    <div class="carousel-caption">
+      <h2>Versión móvil</h2>
+    </div>
+    <div class="carousel">
+      <div class="carousel-track">
+        <img src="../../assets/iniciarsesion-movil.jpg" alt="Login móvil">
+        <img src="../../assets/inicio-movil.jpg" alt="Pantalla de inicio">
+        <img src="../../assets/fichajes-movil.jpg" alt="Fichajes NFC">
+        <img src="../../assets/ajustes-movil.jpg" alt="Pantalla de ajustes">
+      </div>
+      <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="carousel-dots" aria-label="Indicadores de carrusel"></div>
+    </div>
+  </section>
+  <a href="https://github.com/adree3/RiberPublicFichajeApp" 
+    target="_blank" 
+    class="fab-app-link" 
+    aria-label="Repositorio App">
+    <i class="fa-brands fa-github"></i>
+  </a>
+  <script src="riberpublicfichajes.js"></script>
+</body>
+</html>

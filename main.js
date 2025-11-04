@@ -1,7 +1,5 @@
-// ==== NAV scroll spy & reveal animations
 const links = [...document.querySelectorAll('.nav-links a')];
 
-// solo enlaces internos (#)
 const internalLinks = links.filter(a => a.getAttribute('href').startsWith('#'));
 const sections = internalLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
 
@@ -18,7 +16,6 @@ const io = new IntersectionObserver((entries)=>{
 
 sections.forEach(s=>io.observe(s));
 
-// reveal animation
 const rev = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -29,7 +26,6 @@ const rev = new IntersectionObserver((entries)=>{
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 
-// año footer
 document.getElementById('y').textContent = new Date().getFullYear();
 
 // ==== EmailJS (configura tus IDs)
@@ -70,7 +66,12 @@ btn.addEventListener('click', ()=>{
     });
 });
 // ==== ANIMACIÓN DE TEXTO ====
-const roles = [
+const isMobile= window.matchMedia("(max-width: 768px)").matches;
+
+const roles = isMobile ? [
+  "Desarrollador Backend",
+  "Desarrollador Software"
+] : [
   "Desarrollador Backend",
   "Desarrollador de Aplicaciones",
   "Desarrollador de Software"
@@ -88,18 +89,16 @@ function typeEffect() {
 
   if (!deleting && charIndex < current.length) {
     charIndex++;
-    setTimeout(typeEffect, 50); // velocidad de escritura (más rápido)
+    setTimeout(typeEffect, 50);
   } 
   else if (deleting && charIndex > 0) {
     charIndex--;
-    setTimeout(typeEffect, 35); // velocidad de borrado (aún más rápido)
+    setTimeout(typeEffect, 35); 
   } 
   else if (!deleting && charIndex === current.length) {
-    // espera un poco antes de borrar
     setTimeout(() => { deleting = true; typeEffect(); }, 1500);
   } 
   else if (deleting && charIndex === 0) {
-    // pasa al siguiente texto
     deleting = false;
     roleIndex = (roleIndex + 1) % roles.length;
     setTimeout(typeEffect, 300);
@@ -107,3 +106,27 @@ function typeEffect() {
 }
 
 if (textElement) typeEffect();
+
+// ===== MENÚ LATERAL =====
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const closeBtn = document.querySelector(".close-menu");
+  const sideMenu = document.querySelector(".side-menu");
+  const overlay = document.querySelector(".overlay");
+
+  function toggleMenu(open) {
+    sideMenu.classList.toggle("active", open);
+    overlay.classList.toggle("active", open);
+  }
+
+  if (toggle && sideMenu && overlay) {
+    toggle.addEventListener("click", () => toggleMenu(true));
+    closeBtn.addEventListener("click", () => toggleMenu(false));
+    overlay.addEventListener("click", () => toggleMenu(false));
+
+    // Cierra el menú al hacer clic en un enlace
+    sideMenu.querySelectorAll("a").forEach(link =>
+      link.addEventListener("click", () => toggleMenu(false))
+    );
+  }
+});
