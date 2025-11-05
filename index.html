@@ -26,7 +26,7 @@
                     <a href="#proyectos">Proyectos</a>
                     <a href="#experiencia">Experiencia</a>
                     <a href="#contacto">Contacto</a>
-                    <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download><i class="fa-solid fa-download"></i> CV</a>
+                    <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
                 </div>
             </div>
 
@@ -184,14 +184,27 @@
         <section id="contacto" class="sec">
             <h2 class="reveal">Contacto</h2>
             <div class="contact">
-            <div class="panel reveal">
-                <h3>Hablemos</h3>
-                <p class="lead">¿Tienes una idea o vacante? Estoy abierto a propuestas y colaboraciones.</p>
-                <div class="social" style="margin-top:12px">
-                <a href="mailto:adrianalonso200@gmail.com">📧 adrianalonso200@gmail.com</a>
-                <a href="https://www.linkedin.com/in/adrian-alonso-perez-38894a2aa" target="_blank">in/Adrián Alonso</a>
-                <a href="https://github.com/adree3" target="_blank">GitHub</a>
-                </div>
+            <div class="panel reveal contact-main">
+                <p class="lead">Si tienes alguna oportunidad en la que pueda encajar o quieres mas información, no dudes en conactar conmigo.</p>
+                <div class="contact-icon-row">
+                <a class="icon-card" href="https://www.linkedin.com/in/adrian-alonso-perez-38894a2aa" target="_blank" aria-label="LinkedIn"data-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="assets/AdrianAlonsoCV.pdf" class="cv-main-btn" target="_blank" data-label="Descargar CV" download >
+                    <i class="fa-solid fa-download"></i> CV
+                </a>
+                <a class="icon-card" href="https://github.com/adree3" target="_blank" data-label="GitHub" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+
+            <div class="contact-email-card">
+                <span id="email-text">adrianalonso200@gmail.com</span>
+                <button id="copy-email" aria-label="Copiar correo">
+                <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
             </div>
             <form class="panel reveal" id="contact-form">
                 <div class="row">
@@ -208,9 +221,14 @@
 
         <footer class="sec" style="padding-top:20px">
             <div class="sep"></div>
-            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;">
-            <div style="display:flex; align-items:center; gap:10px"><span class="brand-dot"></span><strong>Adrián Alonso</strong></div>
-            <small>© <span id="y"></span> — Hecho por Adrián Alonso Pérez.</small>
+            <div class="footer-text" style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;">
+                <div style="display:flex; align-items:center; gap:10px">
+                    <span class="brand-dot"></span>
+                    <strong>Adrián Alonso Pérez</strong>
+                </div>
+                <small>
+                    © <span id="y"></span> — Hecho por Adrián Alonso Pérez.
+                </small>
             </div>
         </footer>
         <a href="assets/AdrianAlonsoCV.pdf" 

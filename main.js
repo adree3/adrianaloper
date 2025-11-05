@@ -74,7 +74,7 @@ const roles = isMobile ? [
 ] : [
   "Desarrollador Backend",
   "Desarrollador de Aplicaciones",
-  "Desarrollador de Software"
+  "Desarrollador Software"
 ];
 
 const textElement = document.getElementById("typing-text");
@@ -107,16 +107,19 @@ function typeEffect() {
 
 if (textElement) typeEffect();
 
-// ===== MENÚ LATERAL =====
+// Menu lateral movil
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".nav-toggle");
   const closeBtn = document.querySelector(".close-menu");
   const sideMenu = document.querySelector(".side-menu");
   const overlay = document.querySelector(".overlay");
+  const fab = document.querySelector(".fab-cv");
 
   function toggleMenu(open) {
     sideMenu.classList.toggle("active", open);
     overlay.classList.toggle("active", open);
+    document.body.classList.toggle("no-scroll", open);
+    if (fab) fab.classList.toggle("hidden", open);
   }
 
   if (toggle && sideMenu && overlay) {
@@ -129,4 +132,32 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => toggleMenu(false))
     );
   }
+});
+
+// Esconder topbar en movil
+const nav = document.querySelector('.nav');
+
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth > 780) return;
+
+  const current = window.pageYOffset;
+
+  if (current > lastScroll && current > 80) {
+    nav.classList.add("hide");
+  } else {
+    nav.classList.remove("hide");
+  }
+
+  lastScroll = current;
+});
+//Copiar mail al portapapeles
+document.getElementById("copy-email")?.addEventListener("click", () => {
+  const email = "adrianalonso200@gmail.com";
+  navigator.clipboard.writeText(email);
+  document.getElementById("email-text").textContent = "¡Correo copiado!";
+  setTimeout(() => {
+    document.getElementById("email-text").textContent = email;
+  }, 1800);
 });
