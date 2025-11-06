@@ -162,8 +162,7 @@ img{
   gap:6px;
   overflow:hidden;
   transition: all .3s ease;
-  box-shadow: 0 4px 15px rgba(249,115,22,.25);
-    
+  box-shadow: 0 4px 15px rgba(249,115,22,.25);   
 }
 .cv-btn i{
   color: #fff;
@@ -928,15 +927,19 @@ footer{
 .cv-main-btn::before{
   content:"";
   position:absolute;
-  top:0;
+  top:0; 
   left:-75%;
-  width:50%;
+  width:50%; 
   height:100%;
   background: linear-gradient(120deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 80%);
   transform:skewX(-25deg);
   animation: shine 8s infinite;
 }
-
+@keyframes shine{
+  0%{ left:-75%; }
+  60%{ left:125%; }
+  100%{ left:125%; }
+}
 .cv-main-btn:hover{
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(34,197,94,.35);
@@ -972,45 +975,13 @@ footer{
 }
 
 .icon-card::after,
-.cv-main-btn::after {
-  content: attr(data-label);
-  position: absolute;
-  top: -42px;
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  opacity: 0;
-  background: rgba(0,0,0,.75);
-  color: white;
-  font-size: .8rem;
-  padding: 6px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  pointer-events: none;
-  transition: opacity .25s ease, transform .25s ease;
-  z-index: 20;
-}
+
 .icon-card::before,
-.cv-main-btn::before {
-  content: "";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: rgba(0,0,0,.75) transparent transparent transparent;
-  opacity: 0;
-  transition: opacity .25s ease;
-  z-index: 19;
-}
+
 
 .icon-card:hover::after,
 .icon-card:hover::before,
-.cv-main-btn:hover::after,
-.cv-main-btn:hover::before {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
+
 #contact-form input,
 #contact-form textarea {
   background: var(--soft);
