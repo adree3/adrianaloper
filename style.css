@@ -57,7 +57,6 @@ img{
   animation: glow 3.5s ease-in-out infinite;
 }
 
-/* ✨ efecto de brillo suave */
 .opentowork-banner::after {
   content: "";
   position: absolute;
