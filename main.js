@@ -29,9 +29,9 @@ document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 document.getElementById('y').textContent = new Date().getFullYear();
 
 // ==== EmailJS (configura tus IDs)
-const PUBLIC_KEY  = "PON_AQUI_TU_PUBLIC_KEY";
-const SERVICE_ID  = "PON_AQUI_TU_SERVICE_ID";
-const TEMPLATE_ID = "PON_AQUI_TU_TEMPLATE_ID";
+const PUBLIC_KEY  = "GeqxUY2IrRxe9-K1X";
+const SERVICE_ID  = "service_gvbw2at";
+const TEMPLATE_ID = "template_78k8i9a";
 
 emailjs.init({ publicKey: PUBLIC_KEY });
 
@@ -54,8 +54,9 @@ btn.addEventListener('click', ()=>{
 
   emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
     .then(()=>{
-      okMsg.style.display = 'block';
+      okMsg.classList.add("show");
       form.reset();
+      setTimeout(() => okMsg.classList.remove("show"), 2800);
     })
     .catch(err=>{
       alert("No se pudo enviar el mensaje. Verifica EmailJS.\n\n" + JSON.stringify(err));

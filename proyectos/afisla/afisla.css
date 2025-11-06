@@ -9,8 +9,10 @@ body {
 
 /* ===== HEADER DEL PROYECTO ===== */
 header.project-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 50;
   backdrop-filter: blur(10px);
   background: color-mix(in oklab, var(--bg) 70%, transparent);
@@ -19,6 +21,7 @@ header.project-header {
   align-items: center;
   justify-content: center;
   padding: 14px 18px;
+  transition: transform .35s ease;
 }
 .back-btn {
   position: absolute;
@@ -89,7 +92,7 @@ header.project-header {
   position: relative;
   width: 100%;
   max-width: var(--max);
-  margin: 30px auto 0;
+  margin: 100px auto 0;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -179,7 +182,7 @@ header.project-header {
   max-width: var(--max);
   margin: 50px auto 80px;
   padding: 0 18px;
-  display: flex;
+  display: block;
   flex-direction: column;
   gap: 50px;
 }

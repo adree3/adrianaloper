@@ -1,9 +1,6 @@
-// =====================================================
-// CARRUSELES RIBERPUBLIC — ESCRITORIO + MÓVIL
-// =====================================================
-
+// Carrusel de imágenes con autoplay y controles manuales
 (function () {
-  const AUTOPLAY_MS = 5000; // tiempo entre imágenes (5 s)
+  const AUTOPLAY_MS = 5000;
 
   function initCarousel(root) {
     const track = root.querySelector('.carousel-track');
@@ -15,7 +12,6 @@
     const slides = Array.from(track.querySelectorAll('img'));
     if (slides.length === 0) return;
 
-    // Clones para transición infinita
     const firstClone = slides[0].cloneNode(true);
     const lastClone = slides[slides.length - 1].cloneNode(true);
     firstClone.setAttribute('data-clone', 'first');
@@ -23,13 +19,11 @@
     track.appendChild(firstClone);
     track.insertBefore(lastClone, slides[0]);
 
-    // Estado
     const total = slides.length;
     let index = 1;
     let autoplayId = null;
     let isTransitioning = false;
 
-    // Estilos base
     track.style.display = 'flex';
     track.style.willChange = 'transform';
     Array.from(track.children).forEach((el) => {
@@ -41,26 +35,21 @@
       track.style.transition = withTransition ? 'transform 0.6s ease-in-out' : 'none';
       track.style.transform = `translateX(-${i * 100}%)`;
     }
-
     function next() {
       if (isTransitioning) return;
       index++;
       update();
     }
-
     function prev() {
       if (isTransitioning) return;
       index--;
       update();
     }
-
     function update() {
       isTransitioning = true;
       goToIndex(index, true);
       updateDots();
     }
-
-    // Dots
     const dots = [];
     if (dotsWrap) {
       dotsWrap.innerHTML = '';
@@ -76,14 +65,11 @@
         dots.push(btn);
       }
     }
-
     function updateDots() {
       if (!dots.length) return;
       const realIndex = (index - 1 + total) % total;
       dots.forEach((d, i) => d.classList.toggle('is-active', i === realIndex));
     }
-
-    // Transición infinita sin parpadeo
     track.addEventListener('transitionend', () => {
       isTransitioning = false;
       const children = track.children;
@@ -96,11 +82,9 @@
       }
     });
 
-    // Controles manuales
     if (nextBtn) nextBtn.addEventListener('click', next);
     if (prevBtn) prevBtn.addEventListener('click', prev);
 
-    // Autoplay
     function startAutoplay() {
       stopAutoplay();
       autoplayId = setInterval(next, AUTOPLAY_MS);
@@ -110,17 +94,29 @@
       autoplayId = null;
     }
 
-    // Pausa al pasar el ratón
     root.addEventListener('mouseenter', stopAutoplay);
     root.addEventListener('mouseleave', startAutoplay);
 
-    // Inicialización
     requestAnimationFrame(() => goToIndex(index, false));
     updateDots();
     startAutoplay();
   }
 
-  // Inicializar carruseles (escritorio y móvil)
   document.querySelectorAll('.project-hero[data-carousel="desktop"] .carousel').forEach(initCarousel);
   document.querySelectorAll('.mobile-gallery .carousel').forEach(initCarousel);
 })();
+let lastScroll = 0;
+const header = document.querySelector('.project-header');
+
+window.addEventListener('scroll', () => {
+    let current = window.scrollY;
+    let isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+    if (current > lastScroll && current > 60) {
+        header.style.transform = "translateY(-100%)";
+    } else {
+        header.style.transform = "translateY(0)";
+    }
+    
+    lastScroll = current;
+});
