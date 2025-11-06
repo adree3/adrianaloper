@@ -13,3 +13,13 @@ window.addEventListener('scroll', () => {
     
     lastScroll = current;
 });
+// Blur Loading
+document.querySelectorAll('.blur-load').forEach(img => {
+  const full = img.dataset.full;
+  const fullImg = new Image();
+  fullImg.src = full;
+  fullImg.onload = () => {
+    img.src = full;
+    img.classList.add('loaded');
+  };
+});
