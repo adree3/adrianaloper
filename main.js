@@ -128,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBtn.addEventListener("click", () => toggleMenu(false));
     overlay.addEventListener("click", () => toggleMenu(false));
 
-    // Cierra el menú al hacer clic en un enlace
     sideMenu.querySelectorAll("a").forEach(link =>
       link.addEventListener("click", () => toggleMenu(false))
     );
@@ -137,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Esconder topbar en movil
 const nav = document.querySelector('.nav');
-
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
@@ -154,11 +152,19 @@ window.addEventListener('scroll', () => {
   lastScroll = current;
 });
 //Copiar mail al portapapeles
-document.getElementById("copy-email")?.addEventListener("click", () => {
-  const email = "adrianalonso200@gmail.com";
-  navigator.clipboard.writeText(email);
-  document.getElementById("email-text").textContent = "¡Correo copiado!";
-  setTimeout(() => {
-    document.getElementById("email-text").textContent = email;
-  }, 1800);
-});
+const emailText = document.getElementById("email-text");
+const copyBtn = document.getElementById("copy-email");
+
+if (emailText && copyBtn) {
+  emailText.setAttribute("aria-live", "polite");
+
+  copyBtn.addEventListener("click", () => {
+    const email = "adrianalonso200@gmail.com";
+    navigator.clipboard.writeText(email);
+
+    emailText.textContent = "¡Correo copiado!";
+    setTimeout(() => {
+      emailText.textContent = email;
+    }, 1800);
+  });
+}
