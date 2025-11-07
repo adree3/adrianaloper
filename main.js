@@ -28,13 +28,27 @@ document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 
 document.getElementById('y').textContent = new Date().getFullYear();
 
-// ==== EmailJS (configura tus IDs)
+// EmailJS 
 const PUBLIC_KEY  = "GeqxUY2IrRxe9-K1X";
 const SERVICE_ID  = "service_gvbw2at";
 const TEMPLATE_ID = "template_78k8i9a";
 
-emailjs.init({ publicKey: PUBLIC_KEY });
+let emailJSReady = false;
 
+function loadEmailJS() {
+  return new Promise(resolve => {
+    if (emailJSReady) return resolve();
+    
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+    script.onload = () => {
+      emailjs.init({ publicKey: PUBLIC_KEY });
+      emailJSReady = true;
+      resolve();
+    };
+    document.body.appendChild(script);
+  });
+}
 const btn = document.getElementById('send');
 const form = document.getElementById('contact-form');
 const okMsg = document.getElementById('ok');
@@ -52,19 +66,21 @@ btn.addEventListener('click', ()=>{
     sent_at: new Date().toLocaleString()
   };
 
-  emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
-    .then(()=>{
-      okMsg.classList.add("show");
-      form.reset();
-      setTimeout(() => okMsg.classList.remove("show"), 2800);
-    })
-    .catch(err=>{
-      alert("No se pudo enviar el mensaje. Verifica EmailJS.\n\n" + JSON.stringify(err));
-    })
-    .finally(()=>{
-      btn.disabled = false;
-      btn.textContent = "Enviar";
-    });
+  loadEmailJS().then(() => {
+    return emailjs.send(SERVICE_ID, TEMPLATE_ID, data);
+  })
+  .then(()=>{
+    okMsg.classList.add("show");
+    form.reset();
+    setTimeout(() => okMsg.classList.remove("show"), 2800);
+  })
+  .catch(err=>{
+    alert("No se pudo enviar el mensaje. Verifica EmailJS.\n\n" + JSON.stringify(err));
+  })
+  .finally(()=>{
+    btn.disabled = false;
+    btn.textContent = "Enviar";
+  });
 });
 // ==== ANIMACIÓN DE TEXTO ====
 const isMobile= window.matchMedia("(max-width: 768px)").matches;
