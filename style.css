@@ -3,7 +3,7 @@
   --panel:#0f141b;
   --soft:#141a22;
   --text:#e8f0ff;
-  --muted:#9fb0c7;
+  --muted:#c3d5f0;
   --accent:#22c55e;
   --accent-2:#06b6d4;
   --ring: 0 0 0 2px color-mix(in oklab, var(--accent) 50%, transparent);
@@ -92,9 +92,9 @@ img{
 }
 
 @keyframes shineBanner {
-  0% { left: -100%; }
-  50% { left: 120%; }
-  100% { left: 120%; }
+  0% { transform: skewX(-25deg) translateX(0%); }
+  50% { transform: skewX(-25deg) translateX(367%); }
+  100% { transform: skewX(-25deg) translateX(367%); }
 }
 
 @keyframes glow {
@@ -201,11 +201,7 @@ img{
   transform:skewX(-25deg);
   animation: shine 8s infinite;
 }
-@keyframes shine{
-  0%{ left:-75%; }
-  60%{ left:125%; }
-  100%{ left:125%; }
-}
+
 .cv-btn:hover{
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(34,197,94,.35);
@@ -460,7 +456,7 @@ section{
   border-radius:50%; 
   background:var(--accent)
 }
-.i h4{
+.i h3{
   margin:0 0 6px
 }
 .i .meta{
@@ -565,7 +561,7 @@ footer{
 .reveal{
   opacity:0; 
   transform: translateY(12px); 
-  transition: all .6s ease
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .reveal.show{
   opacity:1; 
@@ -958,9 +954,9 @@ footer{
   animation: shine 8s infinite;
 }
 @keyframes shine{
-  0%{ left:-75%; }
-  60%{ left:125%; }
-  100%{ left:125%; }
+  0%{ transform: translateX(-150%) skewX(-25deg); }
+  60%{ transform: translateX(150%) skewX(-25deg); }
+  100%{ transform: translateX(150%) skewX(-25deg); }
 }
 .cv-main-btn:hover{
   transform: translateY(-2px);
