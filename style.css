@@ -18,7 +18,7 @@
   box-sizing:border-box;
 }
 body{
-  font-family: "Inter", sans-serif;
+  font-family: "Manrope", system-ui, Segoe UI, Roboto, sans-serif;
 }
 h1, h2, h3, h4, .btn, .cv-btn, .cv-main-btn, .hero-btn, .fab-cv, .section-title {
   font-family: "Manrope", sans-serif;
@@ -39,7 +39,6 @@ h1, h2 {
 html,body{
   background:var(--bg);
   color:var(--text); 
-  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; 
   scroll-behavior:smooth;
   overflow-x: hidden;
 }
@@ -1046,4 +1045,20 @@ footer{
 .blur-load.loaded {
   filter: blur(0);
   transform: scale(1);
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-display: swap;
+  src: local("☺");
+}
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-display: swap;
+  src: local("☺");
+}
+/* Devicon también */
+@font-face {
+  font-family: "devicon";
+  font-display: swap;
+  src: local("☺");
 }

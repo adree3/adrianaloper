@@ -8,10 +8,12 @@
         <meta name="author" content="Adrián Alonso Pérez">
         <meta name="keywords" content="desarrollador, backend, java, spring boot, portfolio, Valladolid, desarrollador software, fullstack">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"></noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
@@ -111,7 +113,7 @@
             </div>
 
             <div class="avatar reveal">
-                <img class="blur-load" src="assets/blur/adrian-blur.webp" data-full="assets/adrian.webp" width="1296"  height="1944" alt="Adrián Alonso Pérez" loading="lazy" decoding="async">
+                <img class="blur-load" src="assets/blur/adrian-blur.webp" data-full="assets/adrian.webp" srcset="assets/responsive/afisla-600.webp 600w, assets/afisla.webp 1903w" sizes="(max-width: 768px) 600px, 1903px" width="1903" height="930" alt="Web Afisla Gestión" loading="lazy" decoding="async">
                 <a href="#contacto"><div class="opentowork-banner">#OpenToWork</div></a>
             </div>
         </header>
@@ -145,7 +147,7 @@
             <h2 class="reveal">Proyectos</h2>
             <div class="grid">
                 <article class="card reveal">
-                    <div class="thumb"><img  class="blur-load" src="assets/blur/fichaje-blur.webp" data-full="assets/fichaje.webp" width="959"  height="516" alt="App Control Horario" loading="lazy" decoding="async"></div>
+                    <div class="thumb"><img  class="blur-load" src="assets/blur/fichaje-blur.webp" data-full="assets/fichaje.webp" srcset="assets/responsive/fichaje-600.webp 600w, assets/fichaje.webp 959w" sizes="(max-width: 768px) 600px, 959px" width="959" height="516" alt="App Control Horario" loading="lazy" decoding="async"></div>
                     <div style="display:flex; flex-direction:column">
                         <h3>RiberPublic Fichajes</h3>
                         <p>Aplicación multiplataforma para la gestión horaria y el registro de fichajes con NFC y Geolocalización. UI clara con filtros, búsqueda y generación de informes.</p>
