@@ -149,6 +149,7 @@ img{
   padding:8px 10px; 
   color:var(--muted); 
   font-weight:600; 
+  white-space: nowrap;
   border-radius:10px;
 }
 .nav-links a:hover{
@@ -231,8 +232,7 @@ img{
   letter-spacing:.14em; 
   font-size:.85rem
 }
-.hero-card,
-.avatar {
+.hero-card {
   height: 100%;
   width: 100%;
   display: flex;
@@ -240,6 +240,13 @@ img{
   max-width: 500px;
   flex-direction: column;
   justify-content: center;
+}
+
+.avatar {
+  height: 100%;
+  width: 100%;
+  min-width: 350px;
+  max-width: 500px;
 }
 @media (max-width: 780px) {
   .hero {
@@ -1059,8 +1066,11 @@ footer{
 }
 
 .contact-main p.lead {
-  font-size: 16px; 
+  font-size: 16px !important; 
   line-height: 1.6;
   margin-bottom: 24px;
 }
 
+.contact-icon-row {
+  margin-top: 40px;
+}
