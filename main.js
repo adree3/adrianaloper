@@ -82,8 +82,8 @@ btn.addEventListener('click', ()=>{
     btn.textContent = "Enviar";
   });
 });
-// ==== ANIMACIÓN DE TEXTO ====
-const isMobile= window.matchMedia("(max-width: 768px)").matches;
+// ANIMACIÓN DE TEXTO 
+const isMobile= window.matchMedia("(max-width: 1020px)").matches;
 
 const roles = isMobile ? [
   "Desarrollador Backend",
@@ -95,6 +95,7 @@ const roles = isMobile ? [
 ];
 
 const textElement = document.getElementById("typing-text");
+const emptyChar = "\u00A0"; 
 let roleIndex = 0;
 let charIndex = 0;
 let deleting = false;
@@ -102,7 +103,8 @@ let deleting = false;
 function typeEffect() {
   const current = roles[roleIndex];
   const visible = current.substring(0, charIndex);
-  textElement.textContent = visible;
+  
+  textElement.textContent = visible.length === 0 ? emptyChar : visible;
 
   if (!deleting && charIndex < current.length) {
     charIndex++;
@@ -122,7 +124,10 @@ function typeEffect() {
   }
 }
 
-if (textElement) typeEffect();
+if (textElement) {
+    textElement.textContent = emptyChar;
+    typeEffect();
+}
 
 // Menu lateral movil
 document.addEventListener("DOMContentLoaded", () => {
