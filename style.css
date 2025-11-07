@@ -232,21 +232,15 @@ img{
   letter-spacing:.14em; 
   font-size:.85rem
 }
-.hero-card {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  min-width: 350px;
-  max-width: 500px;
-  flex-direction: column;
-  justify-content: center;
-}
-
+.hero-card,
 .avatar {
-  height: 100%;
-  width: 100%;
-  min-width: 350px;
-  max-width: 500px;
+ height: 100%;
+ width: 100%;
+ display: flex;
+ min-width: 350px;
+ max-width: 500px;
+ flex-direction: column;
+ justify-content: center;
 }
 @media (max-width: 780px) {
   .hero {
