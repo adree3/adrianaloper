@@ -4,158 +4,168 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RiberPublic Fichajes — Proyecto</title>
+  <meta name="description" content="Proyecto App RiberPublic Fichajes. Desarrollo multiplataforma con Flutter, Spring Boot y NFC.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <link rel="stylesheet" href="../../style.css">
-  <link rel="stylesheet" href="riberpublicfichajes.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"></noscript>
+  <link rel="preload" href="../../style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../../style.css"></noscript>
+  <link rel="preload" href="riberpublicfichajes.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="riberpublicfichajes.css"></noscript>
 </head>
 <body>
-
-  <header class="project-header">
-    <a href="../../index.html#proyectos" class="back-btn">
-      <i class="fa-solid fa-arrow-left"></i> <span class="back-text">Volver</span>
-    </a>
-    <h1>RiberPublic Fichajes</h1>
-  </header>
-
-  <section class="project-hero"data-carousel="desktop">
-    <div class="carousel">
-      <div class="carousel-track">
-        <img class="blur-load" src="../../assets/blur/ausencias-ordenador-blur.webp" data-full="../../assets/ausencias-ordenador.webp" width="1259" height="677" alt="Gestión de ausencias - Escritorio" loading="lazy" decoding="async">
-        <img class="blur-load" src="../../assets/blur/usuarios-ordenador-blur.webp" data-full="../../assets/usuarios-ordenador.webp" width="1262" height="676" alt="Gestión de usuarios - Escritorio" loading="lazy" decoding="async">
-        <img class="blur-load"  src="../../assets/blur/grupo-ordenador-blur.webp" data-full="../../assets/grupo-ordenador.webp" width="1261" height="676" alt="Grupos y configuración - Escritorio" loading="lazy" decoding="async">
-        <img class="blur-load"  src="../../assets/blur/horarios-ordenador-blur.webp" data-full="../../assets/horarios-ordenador.webp" width="1262" height="676" alt="Panel de horarios - Escritorio" loading="lazy" decoding="async"> 
-      </div>
-      <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
-      <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
-    </div>
-
-
-    <div class="hero-overlay">
-      <a href="https://github.com/adree3/RiberPublicFichajeApp" target="_blank" class="hero-btn"  aria-label="GitHub Repositorio App">
-        <i class="fa-brands fa-github"></i> Repositorio App
+  <main>
+    <header class="project-header">
+      <a href="../../index.html#proyectos" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> <span class="back-text" aria-label="Volver a la página de proyectos">Volver</span>
       </a>
-      <a href="https://github.com/adree3/RiberPublicFichajeApi" target="_blank" class="hero-btn blue"  aria-label="GitHub Repositorio API">
-        <i class="fa-brands fa-github"></i> Repositorio API
-      </a>
-    </div>
-  </section>
+      <h1>RiberPublic Fichajes</h1>
+    </header>
 
-  <section class="project-section">
-    <div class="project-info">
-      <div class="block">
-        <h2>Descripción general</h2>
-        <p>
-            <strong>RiberPublic Fichajes</strong> es una aplicación multiplataforma desarrollada entre marzo y julio de 2025
-            para la empresa <strong>RiberPublic</strong>. Su propósito es optimizar el control horario de trabajadores mediante fichaje con <strong>NFC</strong> y una gestión completa de usuarios, grupos y ausencias.  
-            El proyecto fue realizado íntegramente por mí, desde el diseño en <strong>Figma</strong> hasta el desarrollo del <strong>frontend en Flutter</strong> y el <strong>backend en Spring Boot</strong>.
-        </p>
-        <div class="tech-stack">
-            <span class="tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
-            <span class="tag"><i class="devicon-java-plain colored"></i> Java</span>
-            <span class="tag"><i class="devicon-spring-plain colored"></i> Spring Boot</span>
-            <span class="tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>
-            <span class="tag"><i class="devicon-figma-plain colored"></i> Figma</span>
+    <section class="project-hero"data-carousel="desktop">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img class="blur-load" src="../../assets/blur/ausencias-ordenador-blur.webp" data-full="../../assets/ausencias-ordenador.webp" srcset="../../assets/responsive/ausencias-ordenador-700.webp 700w, ../../assets/ausencias-ordenador.webp 1259w" sizes="(max-width: 768px) 700px, 1259px" width="1259" height="677" alt="Gestión de ausencias - Escritorio" fetchpriority="high" decoding="async">
+          <img class="blur-load" src="../../assets/blur/usuarios-ordenador-blur.webp" data-full="../../assets/usuarios-ordenador.webp" width="1262" height="676" alt="Gestión de usuarios - Escritorio" loading="lazy" decoding="async">
+          <img class="blur-load"  src="../../assets/blur/grupo-ordenador-blur.webp" data-full="../../assets/grupo-ordenador.webp" width="1261" height="676" alt="Grupos y configuración - Escritorio" loading="lazy" decoding="async">
+          <img class="blur-load"  src="../../assets/blur/horarios-ordenador-blur.webp" data-full="../../assets/horarios-ordenador.webp" width="1262" height="676" alt="Panel de horarios - Escritorio" loading="lazy" decoding="async"> 
+        </div>
+        <button class="carousel-btn prev" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-btn next" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
+      </div>
+
+
+      <div class="hero-overlay">
+        <a href="https://github.com/adree3/RiberPublicFichajeApp" target="_blank" class="hero-btn"  aria-label="GitHub Repositorio App">
+          <i class="fa-brands fa-github"></i> Repositorio App
+        </a>
+        <a href="https://github.com/adree3/RiberPublicFichajeApi" target="_blank" class="hero-btn blue"  aria-label="GitHub Repositorio API">
+          <i class="fa-brands fa-github"></i> Repositorio API
+        </a>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="project-info">
+        <div class="block">
+          <h2>Descripción general</h2>
+          <p>
+              <strong>RiberPublic Fichajes</strong> es una aplicación multiplataforma desarrollada entre marzo y julio de 2025
+              para la empresa <strong>RiberPublic</strong>. Su propósito es optimizar el control horario de trabajadores mediante fichaje con <strong>NFC</strong> y una gestión completa de usuarios, grupos y ausencias.  
+              El proyecto fue realizado íntegramente por mí, desde el diseño en <strong>Figma</strong> hasta el desarrollo del <strong>frontend en Flutter</strong> y el <strong>backend en Spring Boot</strong>.
+          </p>
+          <div class="tech-stack">
+              <span class="tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
+              <span class="tag"><i class="devicon-java-plain colored"></i> Java</span>
+              <span class="tag"><i class="devicon-spring-plain colored"></i> Spring Boot</span>
+              <span class="tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+              <span class="tag"><i class="devicon-figma-plain colored"></i> Figma</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="cards">
-        <div class="block">
-            <article class="panel soft">
-                <h3>Versión Usuario</h3>
-                <ul class="nice-list">
-                    <li>Acceso mediante <strong>login</strong> seguro.</li>
-                    <li>Inicio y finalización de jornada mediante <strong>NFC</strong>.</li>
-                    <li>Modo alternativo sin NFC, marcando la ausencia automáticamente.</li>
-                    <li>Consulta del <strong>registro de fichajes</strong> y proceso de justificación de ausencias.</li>
-                    <li>Panel de <strong>ajustes</strong>: tema oscuro, cambio de contraseña y cierre de sesión.</li>
-                </ul>
-            </article>
-        </div>
+      <div class="cards">
+          <div class="block">
+              <article class="panel soft">
+                  <h3>Versión Usuario</h3>
+                  <ul class="nice-list">
+                      <li>Acceso mediante <strong>login</strong> seguro.</li>
+                      <li>Inicio y finalización de jornada mediante <strong>NFC</strong>.</li>
+                      <li>Modo alternativo sin NFC, marcando la ausencia automáticamente.</li>
+                      <li>Consulta del <strong>registro de fichajes</strong> y proceso de justificación de ausencias.</li>
+                      <li>Panel de <strong>ajustes</strong>: tema oscuro, cambio de contraseña y cierre de sesión.</li>
+                  </ul>
+              </article>
+          </div>
 
-        <div class="block">
-            <article class="panel soft">
-                <h3>Versión Administrador</h3>
-                <ul class="nice-list">
-                    <li>Gestión de <strong>ausencias</strong> con estados (pendiente, justificada, no justificada).</li>
-                    <li>Creación, edición y eliminación de <strong>usuarios</strong>.</li>
-                    <li>Administración de <strong>grupos</strong> y definición de horarios personalizados.</li>
-                    <li>Generación automática de ausencias mediante un <strong>FAB</strong>.</li>
-                    <li>Exportación de datos a <strong>Excel</strong>.</li>
-                </ul>
-            </article>
-        </div>
+          <div class="block">
+              <article class="panel soft">
+                  <h3>Versión Administrador</h3>
+                  <ul class="nice-list">
+                      <li>Gestión de <strong>ausencias</strong> con estados (pendiente, justificada, no justificada).</li>
+                      <li>Creación, edición y eliminación de <strong>usuarios</strong>.</li>
+                      <li>Administración de <strong>grupos</strong> y definición de horarios personalizados.</li>
+                      <li>Generación automática de ausencias mediante un <strong>FAB</strong>.</li>
+                      <li>Exportación de datos a <strong>Excel</strong>.</li>
+                  </ul>
+              </article>
+          </div>
 
-        <div class="block">
-            <article class="panel soft">
-                <h3>Arquitectura técnica</h3>
-                <ul class="nice-list">
-                    <li>Frontend multiplataforma en <strong>Flutter</strong> con vistas adaptadas a móvil y escritorio.</li>
-                    <li>Backend RESTful en <strong>Java + Spring Boot</strong> con arquitectura en capas.</li>
-                    <li>Base de datos <strong>MySQL</strong> con relaciones normalizadas.</li>
-                    <li>Comunicación segura mediante <strong>JSON</strong> y autenticación por token.</li>
-                    <li>Diseño UX/UI realizado en <strong>Figma</strong> con enfoque funcional y moderno.</li>
-                </ul>
-            </article>
-        </div>
-    </div>
+          <div class="block">
+              <article class="panel soft">
+                  <h3>Arquitectura técnica</h3>
+                  <ul class="nice-list">
+                      <li>Frontend multiplataforma en <strong>Flutter</strong> con vistas adaptadas a móvil y escritorio.</li>
+                      <li>Backend RESTful en <strong>Java + Spring Boot</strong> con arquitectura en capas.</li>
+                      <li>Base de datos <strong>MySQL</strong> con relaciones normalizadas.</li>
+                      <li>Comunicación segura mediante <strong>JSON</strong> y autenticación por token.</li>
+                      <li>Diseño UX/UI realizado en <strong>Figma</strong> con enfoque funcional y moderno.</li>
+                  </ul>
+              </article>
+          </div>
+      </div>
 
-    <div class="project-info">
-        <div class="block">
-            <h2>Retos y aprendizajes</h2>
-            <p>
-                Uno de los principales retos fue la integración del fichaje con <strong>NFC</strong> en Flutter, garantizando compatibilidad y fiabilidad en dispositivos Android.  
-                También supuso un desafío la sincronización de datos en tiempo real entre la app y la API, manteniendo el rendimiento y la coherencia de la información.  
-                Este proyecto reforzó mis habilidades en <strong>arquitectura full stack</strong>, <strong>diseño responsivo</strong> y <strong>gestión de bases de datos relacionales</strong>.
-            </p>
-        </div>
-    </div>
+      <div class="project-info">
+          <div class="block">
+              <h2>Retos y aprendizajes</h2>
+              <p>
+                  Uno de los principales retos fue la integración del fichaje con <strong>NFC</strong> en Flutter, garantizando compatibilidad y fiabilidad en dispositivos Android.  
+                  También supuso un desafío la sincronización de datos en tiempo real entre la app y la API, manteniendo el rendimiento y la coherencia de la información.  
+                  Este proyecto reforzó mis habilidades en <strong>arquitectura full stack</strong>, <strong>diseño responsivo</strong> y <strong>gestión de bases de datos relacionales</strong>.
+              </p>
+          </div>
+      </div>
 
-    <div class="project-info">
-        <div class="block">
-            <h2>Métricas de impacto</h2>
-            <ul class="nice-list">
-                <li>📈 Reducción del tiempo de gestión de ausencias en un <strong>45%</strong>.</li>
-                <li>⚡ Incremento del rendimiento de fichajes simultáneos hasta <strong>120 usuarios activos</strong>.</li>
-                <li>📊 Mejora del tiempo de carga en un <strong>35%</strong> gracias a optimización de consultas SQL.</li>
-                <li>💬 Interfaz validada con usuarios internos, obteniendo un <strong>95% de satisfacción</strong>.</li>
-            </ul>
-        </div>
-    </div>
-    
-  </section>
-  <section class="project-hero desktop-gallery">
-    <div class="carousel-caption">
-      <h2>Versión móvil</h2>
-    </div>
-    <div class="grid-gallery">
-      <img class="blur-load" src="../../assets/blur/iniciarsesion-movil-blur.webp" data-full="../../assets/iniciarsesion-movil.webp" width="610" height="1356" alt="Login móvil" loading="lazy" decoding="async">
-      <img class="blur-load" src="../../assets/blur/inicio-movil-blur.webp" data-full="../../assets/inicio-movil.webp" width="610" height="1356" alt="Pantalla de inicio" loading="lazy" decoding="async">
-      <img class="blur-load" src="../../assets/blur/fichajes-movil-blur.webp" data-full="../../assets/fichajes-movil.webp" width="610" height="1356" alt="Fichajes NFC" loading="lazy" decoding="async">
-      <img class="blur-load" src="../../assets/blur/ajustes-movil-blur.webp" data-full="../../assets/ajustes-movil.webp" width="610" height="1356" alt="Pantalla de ajustes" loading="lazy" decoding="async">
-    </div>
-    
-  </section>
-  <section class="project-hero mobile-gallery">
-    <div class="carousel-caption">
-      <h2>Versión móvil</h2>
-    </div>
-    <div class="carousel">
-      <div class="carousel-track">
+      <div class="project-info">
+          <div class="block">
+              <h2>Métricas de impacto</h2>
+              <ul class="nice-list">
+                  <li>📈 Reducción del tiempo de gestión de ausencias en un <strong>45%</strong>.</li>
+                  <li>⚡ Incremento del rendimiento de fichajes simultáneos hasta <strong>120 usuarios activos</strong>.</li>
+                  <li>📊 Mejora del tiempo de carga en un <strong>35%</strong> gracias a optimización de consultas SQL.</li>
+                  <li>💬 Interfaz validada con usuarios internos, obteniendo un <strong>95% de satisfacción</strong>.</li>
+              </ul>
+          </div>
+      </div>
+      
+    </section>
+    <section class="project-hero desktop-gallery">
+      <div class="carousel-caption">
+        <h2>Versión móvil</h2>
+      </div>
+      <div class="grid-gallery">
         <img class="blur-load" src="../../assets/blur/iniciarsesion-movil-blur.webp" data-full="../../assets/iniciarsesion-movil.webp" width="610" height="1356" alt="Login móvil" loading="lazy" decoding="async">
         <img class="blur-load" src="../../assets/blur/inicio-movil-blur.webp" data-full="../../assets/inicio-movil.webp" width="610" height="1356" alt="Pantalla de inicio" loading="lazy" decoding="async">
         <img class="blur-load" src="../../assets/blur/fichajes-movil-blur.webp" data-full="../../assets/fichajes-movil.webp" width="610" height="1356" alt="Fichajes NFC" loading="lazy" decoding="async">
         <img class="blur-load" src="../../assets/blur/ajustes-movil-blur.webp" data-full="../../assets/ajustes-movil.webp" width="610" height="1356" alt="Pantalla de ajustes" loading="lazy" decoding="async">
       </div>
-      <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
-      <div class="carousel-dots" aria-label="Indicadores de carrusel"></div>
-    </div>
-  </section>
+      
+    </section>
+    <section class="project-hero mobile-gallery">
+      <div class="carousel-caption">
+        <h2>Versión móvil</h2>
+      </div>
+      <div class="carousel">
+        <div class="carousel-track">
+          <img class="blur-load" src="../../assets/blur/iniciarsesion-movil-blur.webp" data-full="../../assets/iniciarsesion-movil.webp" width="610" height="1356" alt="Login móvil" loading="lazy" decoding="async">
+          <img class="blur-load" src="../../assets/blur/inicio-movil-blur.webp" data-full="../../assets/inicio-movil.webp" width="610" height="1356" alt="Pantalla de inicio" loading="lazy" decoding="async">
+          <img class="blur-load" src="../../assets/blur/fichajes-movil-blur.webp" data-full="../../assets/fichajes-movil.webp" width="610" height="1356" alt="Fichajes NFC" loading="lazy" decoding="async">
+          <img class="blur-load" src="../../assets/blur/ajustes-movil-blur.webp" data-full="../../assets/ajustes-movil.webp" width="610" height="1356" alt="Pantalla de ajustes" loading="lazy" decoding="async">
+        </div>
+        <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="carousel-dots" aria-label="Indicadores de carrusel"></div>
+      </div>
+    </section>
+  </main>
   <a href="https://github.com/adree3/RiberPublicFichajeApp" 
     target="_blank" 
     class="fab-app-link" 
