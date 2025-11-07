@@ -407,13 +407,7 @@ section{
   gap:8px; 
   margin:10px 0
 }
-.chip{
-  font-size:.85rem; 
-  padding:6px 10px; 
-  border-radius:999px; 
-  background:#0e1520; 
-  border:1px solid rgba(255,255,255,.08)
-}
+
 .actions{
   display:flex; 
   gap:12px; 
