@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://adree3.github.io/adrianaloper/</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-11-08</lastmod> 
+  </url>
+  <url>
+    <loc>https://adree3.github.io/adrianaloper/proyectos/afisla/afisla.html</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://adree3.github.io/adrianaloper/proyectos/riberpublicfichajes/riberpublicfichajes.html</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+</urlset>

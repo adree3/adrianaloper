@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://adree3.github.io/adrianaloper/assets/seo/sitemap.xml
