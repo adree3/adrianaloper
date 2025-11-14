@@ -7,6 +7,7 @@
         <meta name="description" content="Desarrollador Backend y Full Stack en Valladolid. Especializado en Java, Spring Boot, Angular, Flutter y Python. Portafolio de proyectos y contacto.">
         <meta name="author" content="Adrián Alonso Pérez">
         <meta name="keywords" content="desarrollador, backend, java, spring boot, portfolio, Valladolid, desarrollador software, fullstack">
+        <link rel="canonical" href="https://adree3.github.io/adrianaloper/">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -25,10 +26,9 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-96x96.png">
         <link rel="shortcut icon" href="assets/icons/favicon.ico">
         <link rel="manifest" href="assets/icons/site.webmanifest">
-        <link rel="sitemap" type="application/xml" title="Sitemap" href="assets/seo/sitemap.xml">
         <meta name="theme-color" content="#0b0e13">
-        <meta property="og:title" content="Adrián Alonso Pérez — Desarrollador">
-        <meta property="og:description" content="Desarrollador Backend y Full Stack. Mirar proyectos →">
+        <meta property="og:title" content="Adrián Alonso Pérez — Desarrollador Backend Java en Valladolid">
+        <meta property="og:description" content="Desarrollador Backend y Full Stack en Valladolid. Especializado en Java, Spring Boot, Angular, Flutter y Python.">
         <meta property="og:image" content="https://adree3.github.io/adrianaloper/assets/adrian.webp">
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary_large_image">
@@ -49,18 +49,18 @@
     <body>
         <nav class="nav">
             <div class="nav-wrap">
-                <div class="brand">
+                <a href="#inicio" class="brand" aria-label="Adrián Alonso Pérez - Volver al inicio">
                     <span class="brand-dot"></span>
                     <span>Adrián Alonso Pérez</span>
-                </div>
+                </a>
                 <button class="nav-toggle" aria-label="Abrir menú">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <div class="nav-links">
-                    <a href="#inicio">Inicio</a>
                     <a href="#sobre-mi">Sobre mí</a>
                     <a href="#proyectos">Proyectos</a>
                     <a href="#experiencia">Experiencia</a>
+                    <a href="">Blog</a>
                     <a href="#contacto">Contacto</a>
                     <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
                 </div>
@@ -181,6 +181,22 @@
                             <div class="actions">
                                 <a class="btn small" href="https://adree3.github.io/afislagestion/" target="_blank">🌐 Sitio web</a>
                                 <a class="btn small info" aria-label="Leer más sobre Web Afisla Gestión" href="proyectos/afisla/afisla.html">Leer más</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <section id="blog" class="sec">
+                <h2 class="reveal">Ultimo blog</h2>
+                <div class="grid">
+                    <article class="card reveal">
+                        <div class="thumb"><img  class="blur-load" src="assets/blur/nfcGeolocalizacionBlog-blur.webp" data-full="assets/nfcGeolocalizacionBlog.webp" srcset="assets/responsive/nfcGeolocalizacionBlog-600.webp 600w, assets/nfcGeolocalizacionBlog.webp 959w" sizes="(max-width: 768px) 600px, 959px" width="959" height="516" alt="App Control Horario" loading="lazy" decoding="async"></div>
+                        <div style="display:flex; flex-direction:column">
+                            <h3>Guía Completa: Implementar Fichajes con NFC y Geolocalización en Flutter</h3>
+                            <p>Para mi proyecto RiberPublic Fichajes, el requisito principal era asegurar que un empleado fichaba en la ubicación correcta. Esto requería leer un tag NFC y, en ese mismo instante, capturar la geolocalización. Aquí explico cómo lo hice.</p>
+                            <div class="actions">
+                                <a class="btn small info" aria-label="Leer más sobre la App RiberPublicFichajes" href="proyectos/riberpublicfichajes/riberpublicfichajes.html">Leer más</a>
                             </div>
                         </div>
                     </article>
