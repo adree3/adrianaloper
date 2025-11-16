@@ -1,0 +1,17 @@
+.blog-header-title {
+  font-size: var(--fs-h1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.blog-header-subtitle {
+  font-size: var(--fs-lg);
+  color: var(--muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+#blog-archive .actions {
+  justify-content: flex-end;
+}

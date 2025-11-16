@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Guía: Fichajes con NFC y Geolocalización en Flutter | Adrián Alonso Pérez</title>
+    <meta name="description" content="Tutorial paso a paso sobre cómo implementar la lectura de tags NFC y capturar la geolocalización de forma simultánea en una app de Flutter.">
+    
+    <link rel="canonical" href="https://adree3.github.io/adrianaloper/blog/nfcGeoFlutter/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap">
+    
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="nfcGeoFlutter.css">
+
+    <link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guía: Fichajes con NFC y Geolocalización en Flutter",
+      "author": { "@type": "Person", "name": "Adrián Alonso Pérez", "url": "https://adree3.github.io/adrianaloper/" },
+      "datePublished": "2025-11-16", "image": "https://adree3.github.io/adrianaloper/assets/nfcGeolocalizacionBlog.webp"
+    }
+    </script>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-wrap">
+            <a href="../../index.html" class="brand" aria-label="Adrián Alonso Pérez - Volver al inicio">
+                <span class="brand-dot"></span>
+                <span>Adrián Alonso Pérez</span>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="../../index.html#sobre-mi">Sobre mí</a>
+                <a href="../../index.html#proyectos">Proyectos</a>
+                <a href="../../index.html#experiencia">Experiencia</a>
+                <a href="../">Blog</a> <a href="../../index.html#contacto">Contacto</a>
+                <a href="../../assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
+            </div>
+        </div>
+        </nav>
+
+    <main>
+        <article class="article-content sec">
+            
+            <div class="article-header">
+                <h1 class="reveal">Guía Completa: Implementar Fichajes con NFC y Geolocalización en Flutter</h1>
+                <div class="blog-meta reveal">
+                    <i class="fa-solid fa-calendar"></i>
+                    Publicado el 16 de noviembre, 2025
+                </div>
+                <img src="../../assets/nfcGeolocalizacionBlog.webp" alt="Portada de la guía de Flutter NFC" class="article-cover-image reveal">
+            </div>
+
+            <p class="reveal">Para mi proyecto <a href="../../proyectos/riberpublicfichajes/">RiberPublic Fichajes</a>, me enfrenté a un reto interesante. El requisito clave era que la empresa debía verificar que el fichaje se estaba realizando *en las instalaciones del cliente* y no desde casa. El reto estaba claro: necesitaba leer un tag NFC y capturar la geolocalización del dispositivo para comprobar ambas cosas. En este artículo, explico cómo lo resolví.</p>
+
+            <h2 class="reveal">La Caja de Herramientas</h2>
+            
+            <p class="reveal">Para construir esta funcionalidad, utilicé tres paquetes principales de pub.dev:</p>
+            <ul>
+                <li><strong>geolocator:</strong> Para obtener la ubicación GPS del dispositivo de forma precisa.</li>
+                <li><strong>nfc_manager:</strong> Para toda la gestión de lectura y descubrimiento de tags NFC.</li>
+                <li><strong>permission_handler:</strong> Para gestionar de forma robusta la solicitud de permisos de localización al usuario.</li>
+            </ul>
+
+            
+            <h2 class="reveal">El Reto: La Cadena de Validación</h2>
+            
+            <p class="reveal">Mi primera idea fue abrir el escáner NFC y, al leer el tag, pedir el GPS. Rápidamente me di cuenta de que este era un mal enfoque: ¿qué pasaba si el usuario leía el tag NFC y *después* se denegaba el permiso de GPS? ¿O si el GPS tardaba 10 segundos en obtener una ubicación precisa?</p>
+            <p class="reveal">La solución fue invertir el flujo. Decidí crear una **cadena de validación secuencial** para asegurar que no se realizaba ningún fichaje inválido y, a la vez, ofrecer una buena experiencia de usuario. La lógica sería:</p>
+            <ol>
+                <li>Usuario pulsa "Fichar".</li>
+                <li>App pide permisos de localización (si no los tiene).</li>
+                <li>App obtiene la ubicación GPS.</li>
+                <li>App comprueba si la ubicación está dentro de la geovalla (los 50m definidos).</li>
+                <li>**Solo si está dentro**, la app abre la pantalla de escaneo NFC.</li>
+                <li>App comprueba que el tag NFC es válido.</li>
+                <li>**Solo si todo es correcto**, se llama al Backend para abrir/cerrar el fichaje.</li>
+            </ol>
+            <p class="reveal">Esto es mucho más eficiente. Si el usuario está a 2km, la app le avisa de que está fuera de rango y ni siquiera intenta activar el hardware NFC.</p>
+            
+
+            <h2 class="reveal">La Solución: Mi Implementación</h2>
+
+            <p class="reveal">Dividí la lógica en dos partes: la validación de la geovalla en `HomeScreen` y la validación del tag en `FichajeNfcScreen`.</p>
+            
+            <h3 class="reveal">Paso 1: Validar la Geovalla (HomeScreen.dart)</h3>
+            <p class="reveal">Todo comienza cuando el usuario elige "Fichar con NFC". En ese `onTap`, ejecuto la validación de GPS *antes* de navegar a la pantalla de NFC. El código clave está en la función `_mostrarOpcionesFichaje`:</p>
+
+            <pre class="reveal"><code>
+/* Este es el manejador del tap en "Fichar con NFC" */
+
+onTap: () async {
+    Navigator.pop(context); // Cierra el modal
+    
+    Position posicion;
+    try {
+        // 1. Obtenemos la posición GPS
+        posicion = await _obtenerPosicion();
+    
+    } catch (e) {
+        // Si falla, mostramos error y paramos
+        AppSnackBar.show(context, message: 'Error al obtener la ubicación' ...);
+        return;
+    }
+
+    // 2. Calculamos la distancia
+    final distancia = calcularDistancia(
+        GeofenceConfiguracion.latitude, 
+        GeofenceConfiguracion.longitud, 
+        posicion.latitude, 
+        posicion.longitude
+    );
+
+    // 3. Validamos la geovalla
+    if (distancia > GeofenceConfiguracion.radioMetros) {
+        // Si está fuera, mostramos error y paramos
+        AppSnackBar.show(context, message: 'Solo puedes fichar en el instituto' ...);
+        return;
+    }
+
+    // 4. Si todo lo anterior es correcto, continuamos
+    Navigator.push(context, MaterialPageRoute(
+        builder: (_) => FichajeNfcScreen(
+            trabajando: _trabajando,
+            // Pasamos un callback para el paso final
+            onCompletar: (cerrado) => _onFichajeCompletado(cerrado, true),
+        ),
+    ));
+},
+            </code></pre>
+
+            <h3 class="reveal">Paso 2: Validar el Tag NFC (fichaje_nfc.dart)</h3>
+            <p class="reveal">Una vez que el usuario está en la pantalla de escaneo, la función `_empezar()` activa la antena NFC. La lógica de validación real ocurre en el callback `onDiscovered`:</p>
+
+            <pre class="reveal"><code>
+NfcManager.instance.startSession(onDiscovered: (tag) async {
+    String resultado = 'Error inesperado';
+    bool ok = false;
+
+    try {
+        // 1. Nos aseguramos de que el tag es de tipo NDEF (el que utilice)
+        final ndef = Ndef.from(tag);
+        if (ndef == null) throw Exception('No es NDEF');
+        
+        await ndef.read();
+
+        // 2. Leemos los registros del tag
+        for (var record in ndef.cachedMessage!.records) {
+            
+            // (Lógica para decodificar el payload de texto) ...
+            
+            final text = utf8.decode(payload.sublist(1 + langLen));
+
+            // 3. Validacion (en la tarjeta NFC estaba escrito FICHAJE)
+            if (text == 'FICHAJE') {
+                ok = true;
+                resultado = '¡Tarjeta válida!';
+            } else {
+                resultado = 'Tarjeta no válida';
+            }
+            break;
+        }
+    } catch (e) {
+        resultado = 'Tarjeta no válida';
+    
+    } finally {
+        // 4. Pase lo que pase, apagamos la antena
+        await NfcManager.instance.stopSession();
+        _escaneando = false;
+    }
+
+    // ... (Actualizar UI y mostrar animación) ...
+    
+    // 5. Si la validación fue OK, llamamos al callback
+    await Future.delayed(const Duration(seconds: 1));
+    if (ok) widget.onCompletar(widget.trabajando);
+    Navigator.of(context).pop();
+});
+            </code></pre>
+            
+            <p class="reveal">Ese `widget.onCompletar` es el que finalmente llama a `_onFichajeCompletado` en la `HomeScreen`, que a su vez ejecuta el `FichajeService.abrirFichaje` o `cerrarFichaje`. ¡Cadena de validación completada!</p>
+
+            <h2 class="reveal">Conclusión</h2>
+            <p class="reveal">Dividir la lógica en una cadena de validación secuencial (primero GPS, luego NFC) resultó ser una solución mucho más robusta y eficiente. Asegura que la app solo realiza trabajo pesado (como activar el NFC o llamar al backend) cuando todas las condiciones de negocio se han cumplido, ahorrando batería y mejorando la experiencia del usuario.</p>
+            <p class="reveal">Puedes ver esta funcionalidad integrada en el proyecto completo. ¡Visítalo para verlo en acción!</p>
+            
+            <div class="blog-cta reveal" style="text-align: left; margin-top: 20px;">
+                <a href="../../proyectos/riberpublicfichajes/" class="btn">
+                    Ver Proyecto RiberPublic Fichajes
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="sec">
+        <div class="sep"></div>
+        <div class="footer-text">
+            <div class="footer-brand"> 
+                <span class="brand-dot"></span>
+                <strong>Adrián Alonso Pérez</strong>
+            </div>
+            <small>
+                © <span id="y"></span> — Hecho por Adrián Alonso Pérez.
+            </small>
+        </div>
+    </footer>
+    
+    <script src="../../main.js" defer></script>
+</body>
+</html>

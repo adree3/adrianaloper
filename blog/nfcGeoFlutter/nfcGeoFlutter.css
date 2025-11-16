@@ -1,0 +1,57 @@
+/* --- blog/nfc-geo-flutter/article.css --- */
+
+.article-content {
+  max-width: 750px; 
+  margin: 20px auto; 
+}
+
+.article-header {
+  margin-bottom: 30px;
+}
+
+.article-header h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.article-cover-image {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-top: 30px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.article-content p {
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.article-content h2 {
+  font-size: var(--fs-h2);
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.article-content ul {
+  font-size: var(--fs-lg);
+  color: var(--muted);
+  line-height: 1.7;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+.article-content pre {
+  background-color: var(--panel);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 18px;
+  overflow-x: auto; 
+  font-family: 'Courier New', Courier, monospace;
+}
+.article-content code {
+  font-size: 0.95em;
+  color: #c3d5f0;
+}

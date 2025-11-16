@@ -60,7 +60,7 @@
                     <a href="#sobre-mi">Sobre mí</a>
                     <a href="#proyectos">Proyectos</a>
                     <a href="#experiencia">Experiencia</a>
-                    <a href="">Blog</a>
+                    <a href="blog/">Blog</a>
                     <a href="#contacto">Contacto</a>
                     <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
                 </div>
@@ -78,7 +78,7 @@
                     <a href="#sobre-mi">Sobre mí</a>
                     <a href="#proyectos">Proyectos</a>
                     <a href="#experiencia">Experiencia</a>
-                    <a href="">Blog</a>
+                    <a href="blog/">Blog</a>
                     <a href="#contacto">Contacto</a>
                     <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download>
                     <i class="fa-solid fa-download"></i> CV
@@ -152,8 +152,10 @@
                 <h2 class="reveal">Proyectos</h2>
                 <div class="grid">
                     <article class="card reveal">
-                        <div class="thumb"><img  class="blur-load" src="assets/blur/fichaje-blur.webp" data-full="assets/fichaje.webp" srcset="assets/responsive/fichaje-600.webp 600w, assets/fichaje.webp 959w" sizes="(max-width: 768px) 600px, 959px" width="959" height="516" alt="App Control Horario" loading="lazy" decoding="async"></div>
-                        <div style="display:flex; flex-direction:column">
+                        <div class="thumb">
+                            <img  class="blur-load" src="assets/blur/fichaje-blur.webp" data-full="assets/fichaje.webp" srcset="assets/responsive/fichaje-600.webp 600w, assets/fichaje.webp 959w" sizes="(max-width: 768px) 600px, 959px" width="959" height="516" alt="App Control Horario" loading="lazy" decoding="async">
+                        </div>
+                        <div class="card-content">
                             <h3>RiberPublic Fichajes</h3>
                             <p>Aplicación multiplataforma para la gestión horaria y el registro de fichajes con NFC y Geolocalización. UI clara con filtros, búsqueda y generación de informes.</p>
                             <div class="chips">
@@ -170,7 +172,7 @@
                     </article>
                     <article class="card reveal">
                         <div class="thumb"><img  class="blur-load" src="assets/blur/afisla-blur.webp" data-full="assets/afisla.webp" width="1903"  height="930" alt="Web Afisla Gestión" loading="lazy" decoding="async"></div>
-                        <div style="display:flex; flex-direction:column">
+                        <div class="card-content">
                             <h3>Web Afisla Gestión</h3>
                             <p>Desarrollo de página web corporativa moderna y responsive para la gestoría Afisla, con componentes reutilizables y diseño elegante. Realización del SEO correspondiente. </p>
                             <div class="chips">
@@ -202,12 +204,12 @@
                             </div>
                             <p>Para mi proyecto RiberPublic Fichajes, el requisito principal era asegurar que un empleado fichaba en la ubicación correcta. Esto requería leer un tag NFC y, en ese mismo instante, capturar la geolocalización. Aquí explico cómo lo hice.</p>
                             <div class="actions">
-                                <a class="btn small info" aria-label="Leer más sobre la App RiberPublicFichajes" href="proyectos/">Leer más</a>
+                                <a class="btn small info" aria-label="Leer más sobre la App RiberPublicFichajes" href="blog/">Leer más</a>
                             </div>
                         </div>
                     </article>
                 </div>
-                <div class="blog-cta reveal">
+                <div class="blog-cta reveal"> 
                     <a href="blog/" class="btn">
                         Ver todos los artículos
                     </a>
@@ -283,17 +285,17 @@
                         </div>
                         <label for="message">Mensaje</label>
                         <textarea id="message" name="message" required></textarea>
-                        <button id="send" type="button" class="btn" style="margin-top:12px">Enviar</button>
+                        <button id="send" type="button" class="btn">Enviar</button>
                         <div id="ok" class="ok-pop">¡Mensaje enviado con éxito!</div>
                     </form>
                 </div>
             </section>
 
         </main>
-        <footer class="sec" style="padding-top:20px">
+        <footer class="sec">
             <div class="sep"></div>
-            <div class="footer-text" style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;">
-                <div style="display:flex; align-items:center; gap:10px">
+            <div class="footer-text" >
+                <div class="footer-brand">
                     <span class="brand-dot"></span>
                     <strong>Adrián Alonso Pérez</strong>
                 </div>

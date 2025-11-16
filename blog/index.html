@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Blog - Adrián Alonso Pérez</title>
+    <meta name="description" content="Artículos y tutoriales sobre desarrollo backend (Java, Spring), Flutter y tecnología por Adrián Alonso Pérez.">
+    <link rel="canonical" href="https://adree3.github.io/adrianaloper/blog/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap"></noscript>
+    
+    <link rel="preload" href="../style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../style.css"></noscript>
+    <link rel="stylesheet" href="blog.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+    <link rel="manifest" href="../assets/icons/site.webmanifest">
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico">
+
+    <meta name="theme-color" content="#0b0e13">
+    </head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-wrap">
+            <a href="../index.html" class="brand" aria-label="Adrián Alonso Pérez - Volver al inicio">
+                <span class="brand-dot"></span>
+                <span>Adrián Alonso Pérez</span>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="../index.html#sobre-mi">Sobre mí</a>
+                <a href="../index.html#proyectos">Proyectos</a>
+                <a href="../index.html#experiencia">Experiencia</a>
+                <a href="../blog/">Blog</a> 
+                <a href="../index.html#contacto">Contacto</a>
+                <a href="../assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
+            </div>
+        </div>
+        </nav>
+
+    <main>
+        <section id="blog-archive" class="sec">
+            
+            <h1 class="reveal blog-header-title">Blog</h1>
+            <p class="reveal blog-header-subtitle">
+                Artículos, tutoriales y reflexiones sobre mis proyectos y aprendizajes en el desarrollo de software.
+            </p>
+            <div class="grid">
+                <article class="card reveal">
+                    <div class="thumb">
+                        <img  class="blur-load" src="../assets/blur/nfcGeolocalizacionBlog-blur.webp" data-full="../assets/nfcGeolocalizacionBlog.webp" srcset="../assets/responsive/nfcGeolocalizacionBlog-600.webp 600w, ../assets/nfcGeolocalizacionBlog.webp 959w" sizes="(max-width: 768px) 600px, 959px" width="959" height="516" alt="App Control Horario" loading="lazy" decoding="async">
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3>Guía Completa: Implementar Fichajes con NFC y Geolocalización en Flutter</h3>
+                        <div class="blog-meta">
+                            <i class="fa-solid fa-calendar"></i>
+                            Publicado el 14 de noviembre, 2025
+                        </div>
+                        <p>Para mi proyecto RiberPublic Fichajes, el requisito principal era asegurar que un empleado fichaba en la ubicación correcta. Esto requería leer un tag NFC y, en ese mismo instante, capturar la geolocalización. Aquí explico cómo lo hice.</p>
+                        <div class="actions">
+                            <a class="btn small info" 
+                               aria-label="Leer más sobre la guía de Flutter y NFC" 
+                               href="nfcGeoFlutter/">Leer más</a>
+                        </div>
+                    </div>
+                </article>
+                
+                </div>
+        </section>
+    </main>
+    <footer class="sec">
+        <div class="sep"></div>
+        <div class="footer-text" >
+            <div class="footer-brand">
+                <span class="brand-dot"></span>
+                <strong>Adrián Alonso Pérez</strong>
+            </div>
+            <small>
+                © <span id="y"></span> — Hecho por Adrián Alonso Pérez.
+            </small>
+        </div>
+    </footer>
+    
+    <script src="../main.js" defer></script>
+    <script src="blog.js" defer></script>
+</body>
+</html>

@@ -571,6 +571,24 @@ footer{
   padding: 0 18px; 
   color:var(--muted)
 }
+
+footer.sec {
+  padding-top: 20px;
+}
+
+.footer-text {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .sep{
   height:1px; 
   background:rgba(255,255,255,.06); 
@@ -1048,6 +1066,7 @@ footer{
   color: #fff;
   cursor: pointer;
   transition: transform .25s ease, box-shadow .25s ease;
+  margin-top: 12px;
 }
 
 #send:hover {

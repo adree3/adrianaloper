@@ -1,5 +1,17 @@
 const links = [...document.querySelectorAll('.nav-links a')];
 
+const currentPath = window.location.pathname;
+const blogLink = links.find(link => link.href && link.href.includes('/blog/'));
+
+if (currentPath.includes('/blog/') && blogLink) {
+    links.forEach(l => {
+    if (l.getAttribute('href').startsWith('#')) {
+      l.classList.remove('active');
+    }
+  });
+  blogLink.classList.add('active');
+}
+
 const internalLinks = links.filter(a => a.getAttribute('href').startsWith('#'));
 const sections = internalLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
 
