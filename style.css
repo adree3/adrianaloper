@@ -403,6 +403,29 @@ section{
 .card p{
   color:var(--muted)
 }
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-meta {
+  font-size: 0.9em;
+  color: #aaa;
+  margin: 10px 0;
+}
+.blog-meta i {
+  margin-right: 5px;
+}
+
+#blog .actions {
+  justify-content: flex-end;
+}
+
+.blog-cta {
+  text-align: center;
+  margin-top: 30px;
+}
 .chips{
   display:flex; 
   justify-content: center;
