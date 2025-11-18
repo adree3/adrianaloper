@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap">
     
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../blog.css">
     <link rel="stylesheet" href="nfcGeoFlutter.css">
 
     <link rel="shortcut icon" href="../../assets/icons/favicon.ico">
@@ -33,38 +32,27 @@
 </head>
 <body>
 
-    <nav class="nav">
-        <div class="nav-wrap">
-            <a href="../../index.html" class="brand" aria-label="Adrián Alonso Pérez - Volver al inicio">
-                <span class="brand-dot"></span>
-                <span>Adrián Alonso Pérez</span>
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="../../index.html#sobre-mi">Sobre mí</a>
-                <a href="../../index.html#proyectos">Proyectos</a>
-                <a href="../../index.html#experiencia">Experiencia</a>
-                <a href="../">Blog</a> <a href="../../index.html#contacto">Contacto</a>
-                <a href="../../assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
-            </div>
-        </div>
-        </nav>
+    <header class="project-header">
+      <a href="../../index.html#proyectos" class="back-btn"  aria-label="Volver a la página de proyectos">
+        <i class="fa-solid fa-arrow-left"></i> <span class="back-text">Volver</span>
+      </a>
+      <h1>NFC y Geolocalización Futter</h1>
+    </header>
 
     <main>
         <article class="article-content sec">
             
             <div class="article-header">
                 <h1 class="reveal">Guía Completa: Implementar Fichajes con NFC y Geolocalización en Flutter</h1>
+                
+                <img src="../../assets/nfcGeolocalizacionBlog.webp" alt="Portada de la guía de Flutter NFC" class="article-cover-image reveal">
                 <div class="blog-meta reveal">
                     <i class="fa-solid fa-calendar"></i>
                     Publicado el 16 de noviembre, 2025
                 </div>
-                <img src="../../assets/nfcGeolocalizacionBlog.webp" alt="Portada de la guía de Flutter NFC" class="article-cover-image reveal">
             </div>
 
-            <p class="reveal">Para mi proyecto <a href="../../proyectos/riberpublicfichajes/">RiberPublic Fichajes</a>, me enfrenté a un reto interesante. El requisito clave era que la empresa debía verificar que el fichaje se estaba realizando *en las instalaciones del cliente* y no desde casa. El reto estaba claro: necesitaba leer un tag NFC y capturar la geolocalización del dispositivo para comprobar ambas cosas. En este artículo, explico cómo lo resolví.</p>
+            <p class="reveal">Para mi proyecto <a href="../../proyectos/riberpublicfichajes/">RiberPublic Fichajes</a>, me enfrenté a un reto interesante. El requisito clave era que la empresa debía verificar que el fichaje se estaba realizando en las instalaciones del cliente y no desde casa. El reto estaba claro: necesitaba <strong>leer un tag NFC </strong> y capturar la <strong>geolocalización del dispositivo</strong> para comprobar ambas cosas. En este artículo, explico cómo lo resolví.</p>
 
             <h2 class="reveal">La Caja de Herramientas</h2>
             
@@ -78,45 +66,45 @@
             
             <h2 class="reveal">El Reto: La Cadena de Validación</h2>
             
-            <p class="reveal">Mi primera idea fue abrir el escáner NFC y, al leer el tag, pedir el GPS. Rápidamente me di cuenta de que este era un mal enfoque: ¿qué pasaba si el usuario leía el tag NFC y *después* se denegaba el permiso de GPS? ¿O si el GPS tardaba 10 segundos en obtener una ubicación precisa?</p>
-            <p class="reveal">La solución fue invertir el flujo. Decidí crear una **cadena de validación secuencial** para asegurar que no se realizaba ningún fichaje inválido y, a la vez, ofrecer una buena experiencia de usuario. La lógica sería:</p>
+            <p class="reveal">Mi primera idea fue abrir el escáner NFC y, al leer el tag, pedir el GPS. Rápidamente me di cuenta de que este era un mal enfoque: ¿qué pasaba si el usuario leía el tag NFC y después se denegaba el permiso de GPS? ¿O si el GPS tardaba 10 segundos en obtener una ubicación precisa?</p>
+            <p class="reveal">La solución fue <strong>invertir el flujo</strong>. Decidí crear una <strong>cadena de validación secuencial </strong>para asegurar que no se realizaba ningún fichaje inválido y, a la vez, ofrecer una buena experiencia de usuario. La lógica sería:</p>
             <ol>
-                <li>Usuario pulsa "Fichar".</li>
-                <li>App pide permisos de localización (si no los tiene).</li>
+                <li>Usuario pulsa <strong>"Fichar"</strong>.</li>
+                <li>App pide <strong>permisos de localización </strong>(si no los tiene).</li>
                 <li>App obtiene la ubicación GPS.</li>
-                <li>App comprueba si la ubicación está dentro de la geovalla (los 50m definidos).</li>
-                <li>**Solo si está dentro**, la app abre la pantalla de escaneo NFC.</li>
+                <li>App comprueba si la ubicación está dentro de la <strong> geovalla </strong>(los 50m definidos).</li>
+                <li>Si esta dentro de la geovalla la app abre la <strong> pantalla de escaneo NFC </strong>.</li>
                 <li>App comprueba que el tag NFC es válido.</li>
-                <li>**Solo si todo es correcto**, se llama al Backend para abrir/cerrar el fichaje.</li>
+                <li>Si todo es correcto, se llama al Backend para <strong> abrir/cerrar </strong> el fichaje.</li>
             </ol>
             <p class="reveal">Esto es mucho más eficiente. Si el usuario está a 2km, la app le avisa de que está fuera de rango y ni siquiera intenta activar el hardware NFC.</p>
             
 
             <h2 class="reveal">La Solución: Mi Implementación</h2>
 
-            <p class="reveal">Dividí la lógica en dos partes: la validación de la geovalla en `HomeScreen` y la validación del tag en `FichajeNfcScreen`.</p>
+            <p class="reveal">Dividí la lógica en dos partes: la validación de la geovalla en HomeScreen y la validación del tag en FichajeNfcScreen.</p>
             
             <h3 class="reveal">Paso 1: Validar la Geovalla (HomeScreen.dart)</h3>
-            <p class="reveal">Todo comienza cuando el usuario elige "Fichar con NFC". En ese `onTap`, ejecuto la validación de GPS *antes* de navegar a la pantalla de NFC. El código clave está en la función `_mostrarOpcionesFichaje`:</p>
+            <p class="reveal">Todo comienza cuando el usuario elige "Fichar con NFC". En ese onTap, ejecuto la validación de GPS antes de navegar a la pantalla de NFC. El código clave está en la función _mostrarOpcionesFichaje:</p>
 
             <pre class="reveal"><code>
-/* Este es el manejador del tap en "Fichar con NFC" */
+<span class="code-comment">/* Este es el manejador del tap en "Fichar con NFC" */</span>
 
 onTap: () async {
-    Navigator.pop(context); // Cierra el modal
+    Navigator.pop(context);
     
     Position posicion;
     try {
-        // 1. Obtenemos la posición GPS
+        <span class="code-comment">// 1. Obtenemos la posición GPS</span>
         posicion = await _obtenerPosicion();
     
     } catch (e) {
-        // Si falla, mostramos error y paramos
+        <span class="code-comment">// Si falla, mostramos error y paramos</span>
         AppSnackBar.show(context, message: 'Error al obtener la ubicación' ...);
         return;
     }
 
-    // 2. Calculamos la distancia
+    <span class="code-comment">// 2. Calculamos la distancia</span>
     final distancia = calcularDistancia(
         GeofenceConfiguracion.latitude, 
         GeofenceConfiguracion.longitud, 
@@ -124,18 +112,18 @@ onTap: () async {
         posicion.longitude
     );
 
-    // 3. Validamos la geovalla
+    <span class="code-comment">// 3. Validamos la geovalla</span>
     if (distancia > GeofenceConfiguracion.radioMetros) {
-        // Si está fuera, mostramos error y paramos
-        AppSnackBar.show(context, message: 'Solo puedes fichar en el instituto' ...);
+        <span class="code-comment">// Si está fuera, mostramos error y paramos</span>
+        AppSnackBar.show(context, message: 'Solo puedes fichar en el instituto' ..);
         return;
     }
 
-    // 4. Si todo lo anterior es correcto, continuamos
+    <span class="code-comment">// 4. Si todo lo anterior es correcto, continuamos</span>
     Navigator.push(context, MaterialPageRoute(
         builder: (_) => FichajeNfcScreen(
             trabajando: _trabajando,
-            // Pasamos un callback para el paso final
+            <span class="code-comment">// Pasamos un callback para el paso final</span>
             onCompletar: (cerrado) => _onFichajeCompletado(cerrado, true),
         ),
     ));
@@ -143,7 +131,7 @@ onTap: () async {
             </code></pre>
 
             <h3 class="reveal">Paso 2: Validar el Tag NFC (fichaje_nfc.dart)</h3>
-            <p class="reveal">Una vez que el usuario está en la pantalla de escaneo, la función `_empezar()` activa la antena NFC. La lógica de validación real ocurre en el callback `onDiscovered`:</p>
+            <p class="reveal">Una vez que el usuario está en la pantalla de escaneo, la función _empezar() activa la antena NFC. La lógica de validación real ocurre en el callback onDiscovered:</p>
 
             <pre class="reveal"><code>
 NfcManager.instance.startSession(onDiscovered: (tag) async {
@@ -151,20 +139,20 @@ NfcManager.instance.startSession(onDiscovered: (tag) async {
     bool ok = false;
 
     try {
-        // 1. Nos aseguramos de que el tag es de tipo NDEF (el que utilice)
+        <span class="code-comment">// 1. Nos aseguramos de que el tag es de tipo NDEF (el que utilice)</span>
         final ndef = Ndef.from(tag);
         if (ndef == null) throw Exception('No es NDEF');
         
         await ndef.read();
 
-        // 2. Leemos los registros del tag
+        <span class="code-comment">// 2. Leemos los registros del tag</span>
         for (var record in ndef.cachedMessage!.records) {
             
-            // (Lógica para decodificar el payload de texto) ...
+            <span class="code-comment">// (Lógica para decodificar el payload de texto) ...</span>
             
             final text = utf8.decode(payload.sublist(1 + langLen));
 
-            // 3. Validacion (en la tarjeta NFC estaba escrito FICHAJE)
+            <span class="code-comment">// 3. Validacion (en la tarjeta NFC estaba escrito FICHAJE)</span>
             if (text == 'FICHAJE') {
                 ok = true;
                 resultado = '¡Tarjeta válida!';
@@ -177,25 +165,25 @@ NfcManager.instance.startSession(onDiscovered: (tag) async {
         resultado = 'Tarjeta no válida';
     
     } finally {
-        // 4. Pase lo que pase, apagamos la antena
+        <span class="code-comment">// 4. Pase lo que pase, apagamos la antena</span>
         await NfcManager.instance.stopSession();
         _escaneando = false;
     }
 
-    // ... (Actualizar UI y mostrar animación) ...
+    <span class="code-comment">// ... (Actualizar UI y mostrar animación) ...</span>
     
-    // 5. Si la validación fue OK, llamamos al callback
+    <span class="code-comment">// 5. Si la validación fue OK, llamamos al callback</span>
     await Future.delayed(const Duration(seconds: 1));
     if (ok) widget.onCompletar(widget.trabajando);
     Navigator.of(context).pop();
 });
             </code></pre>
             
-            <p class="reveal">Ese `widget.onCompletar` es el que finalmente llama a `_onFichajeCompletado` en la `HomeScreen`, que a su vez ejecuta el `FichajeService.abrirFichaje` o `cerrarFichaje`. ¡Cadena de validación completada!</p>
+            <p class="reveal">Ese widget.onCompletar es el que finalmente llama a _onFichajeCompletado en la HomeScreen, que a su vez ejecuta el FichajeService.abrirFichaje o cerrarFichaje. </p>
 
             <h2 class="reveal">Conclusión</h2>
-            <p class="reveal">Dividir la lógica en una cadena de validación secuencial (primero GPS, luego NFC) resultó ser una solución mucho más robusta y eficiente. Asegura que la app solo realiza trabajo pesado (como activar el NFC o llamar al backend) cuando todas las condiciones de negocio se han cumplido, ahorrando batería y mejorando la experiencia del usuario.</p>
-            <p class="reveal">Puedes ver esta funcionalidad integrada en el proyecto completo. ¡Visítalo para verlo en acción!</p>
+            <p class="reveal">Dividir la lógica en una cadena de validación secuencial <strong> (primero GPS, luego NFC) </strong> resultó ser una solución mucho más robusta y eficiente. Asegura que la app solo realiza trabajo pesado (como activar el NFC o llamar al backend) cuando todas las condiciones de negocio se han cumplido, ahorrando batería y mejorando la experiencia del usuario.</p>
+            <p class="reveal">Puedes ver esta funcionalidad integrada en el proyecto completo.</p>
             
             <div class="blog-cta reveal" style="text-align: left; margin-top: 20px;">
                 <a href="../../proyectos/riberpublicfichajes/" class="btn">
@@ -218,7 +206,8 @@ NfcManager.instance.startSession(onDiscovered: (tag) async {
             </small>
         </div>
     </footer>
-    
-    <script src="../../main.js" defer></script>
+    <script src="../../main.js"></script>
+    <script src="nfcGeoFutter.js" defer></script>
+
 </body>
 </html>

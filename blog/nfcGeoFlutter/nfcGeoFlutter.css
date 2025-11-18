@@ -1,16 +1,86 @@
-/* --- blog/nfc-geo-flutter/article.css --- */
+.project-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklab, var(--bg) 70%, transparent);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  backdrop-filter: blur(10px);
+  padding: 14px 18px;
+  transition: transform 0.3s ease;
+}
+
+.project-header h1 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  position: relative;
+  
+}
+
+.project-header h1::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+  transform: translateX(-50%);
+  animation: underlineIn 1.2s ease forwards;
+}
+
+@keyframes underlineIn {
+  to {
+    width: 100%;
+  }
+}
+
+.back-btn {
+  position: absolute;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(15, 21, 32, .65);
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, .1);
+  font-weight: 700;
+  transition: all .25s ease;
+}
+
+.back-btn:hover {
+  background: rgba(34, 197, 94, .25);
+  color: var(--accent);
+  transform: translateX(-3px);
+}
+
+@media (max-width: 780px) {
+  .back-btn .back-text {
+    display: none;
+  }
+}
 
 .article-content {
   max-width: 750px; 
-  margin: 20px auto; 
+  margin: 40px auto; 
+  padding: 0 20px;
 }
 
 .article-header {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .article-header h1 {
-  font-size: var(--fs-h1);
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
   line-height: 1.1;
   margin-bottom: 15px;
 }
@@ -20,38 +90,74 @@
   border-radius: var(--radius);
   margin-top: 30px;
   border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .article-content p {
-  font-size: var(--fs-lg);
+  font-size: 1.15rem;
   line-height: 1.7;
   color: var(--muted);
   margin-bottom: 20px;
 }
 
 .article-content h2 {
-  font-size: var(--fs-h2);
-  margin-top: 40px;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: var(--text);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
 }
 
-.article-content ul {
-  font-size: var(--fs-lg);
+.article-content h3 {
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.article-content ul, .article-content ol {
+  font-size: 1.1rem;
   color: var(--muted);
   line-height: 1.7;
-  padding-left: 30px;
-  margin-bottom: 20px;
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.article-content li {
+  margin-bottom: 10px;
 }
 
 .article-content pre {
-  background-color: var(--panel);
-  border: 1px solid rgba(255,255,255,.08);
+  background-color: #1e1e1e;
+  border: 1px solid #333;
   border-radius: 12px;
-  padding: 18px;
+  padding: 20px;
   overflow-x: auto; 
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  margin: 30px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
+
 .article-content code {
-  font-size: 0.95em;
-  color: #c3d5f0;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+.code-comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.blog-cta {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+strong {
+  color: var(--accent-2);
+  font-weight: bold;
 }

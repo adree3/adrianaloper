@@ -171,19 +171,22 @@ document.addEventListener("DOMContentLoaded", () => {
 const nav = document.querySelector('.nav');
 let lastScroll = 0;
 
-window.addEventListener('scroll', () => {
-  if (window.innerWidth > 780) return;
+if (nav) {
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth > 780) return;
 
-  const current = window.pageYOffset;
+    const current = window.pageYOffset;
 
-  if (current > lastScroll && current > 80) {
-    nav.classList.add("hide");
-  } else {
-    nav.classList.remove("hide");
-  }
+    if (current > lastScroll && current > 80) {
+      nav.classList.add("hide");
+    } else {
+      nav.classList.remove("hide");
+    }
 
-  lastScroll = current;
-});
+    lastScroll = current;
+  });  
+}
+
 //Copiar mail al portapapeles
 const emailText = document.getElementById("email-text");
 const copyBtn = document.getElementById("copy-email");
