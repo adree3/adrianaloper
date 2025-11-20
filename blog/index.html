@@ -20,8 +20,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap"></noscript>
     
-    <link rel="preload" href="../style.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="../style.css"></noscript>
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="blog.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
@@ -32,72 +31,92 @@
 
     <meta name="theme-color" content="#0b0e13">
     </head>
-<body>
-
-    <nav class="nav">
-        <div class="nav-wrap">
-            <a href="../index.html" class="brand" aria-label="Adrián Alonso Pérez - Volver al inicio">
-                <span class="brand-dot"></span>
-                <span>Adrián Alonso Pérez</span>
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="../index.html#sobre-mi">Sobre mí</a>
-                <a href="../index.html#proyectos">Proyectos</a>
-                <a href="../index.html#experiencia">Experiencia</a>
-                <a href="../blog/">Blog</a> 
-                <a href="../index.html#contacto">Contacto</a>
-                <a href="../assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
-            </div>
-        </div>
-        </nav>
-
-    <main>
-        <section id="blog-archive" class="sec">
-            
-            <h1 class="reveal blog-header-title">Blog</h1>
-            <p class="reveal blog-header-subtitle">
-                Artículos, tutoriales y reflexiones sobre mis proyectos y aprendizajes en el desarrollo de software.
-            </p>
-            <div class="grid">
-                <article class="card reveal">
-                    <div class="thumb">
-                        <img  class="blur-load" src="../assets/blur/nfcGeolocalizacionBlog-blur.webp" data-full="../assets/nfcGeolocalizacionBlog.webp" srcset="../assets/responsive/nfcGeolocalizacionBlog-600.webp 600w, ../assets/nfcGeolocalizacionBlog.webp 959w" sizes="(max-width: 768px) 600px, 959px" width="959" height="516" alt="App Control Horario" loading="lazy" decoding="async">
-                    </div>
-                    
-                    <div class="card-content">
-                        <h3>Guía Completa: Implementar Fichajes con NFC y Geolocalización en Flutter</h3>
-                        <div class="blog-meta">
-                            <i class="fa-solid fa-calendar"></i>
-                            Publicado el 14 de noviembre, 2025
-                        </div>
-                        <p>Para mi proyecto RiberPublic Fichajes, el requisito principal era asegurar que un empleado fichaba en la ubicación correcta. Esto requería leer un tag NFC y, en ese mismo instante, capturar la geolocalización. Aquí explico cómo lo hice.</p>
-                        <div class="actions">
-                            <a class="btn small info" 
-                               aria-label="Leer más sobre la guía de Flutter y NFC" 
-                               href="nfcGeoFlutter/">Leer más</a>
-                        </div>
-                    </div>
-                </article>
-                
+    <body>
+        <header class="nav">
+            <div class="nav-wrap">
+                <a href="../index.html" class="brand" aria-label="Adrián Alonso Pérez - Volver al inicio">
+                    <span class="brand-dot"></span>
+                    <span>Adrián Alonso Pérez</span>
+                </a>
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="../index.html#sobre-mi">Sobre mí</a>
+                    <a href="../index.html#proyectos">Proyectos</a>
+                    <a href="../index.html#experiencia">Experiencia</a>
+                    <a href="../blog/" class="active">Blog</a> 
+                    <a href="../index.html#contacto">Contacto</a>
+                    <a href="../assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
                 </div>
-        </section>
-    </main>
-    <footer class="sec">
-        <div class="sep"></div>
-        <div class="footer-text" >
-            <div class="footer-brand">
-                <span class="brand-dot"></span>
-                <strong>Adrián Alonso Pérez</strong>
             </div>
-            <small>
-                © <span id="y"></span> — Hecho por Adrián Alonso Pérez.
-            </small>
-        </div>
-    </footer>
-    
-    <script src="../main.js" defer></script>
-</body>
+
+            <div class="side-menu">
+                <div class="side-header">
+                    <span class="brand-dot"></span>
+                    <span class="brand-name">Adrián Alonso Pérez</span>
+                    <button class="close-menu" aria-label="Cerrar menú">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="side-links">
+                    <a href="../index.html#sobre-mi">Sobre mí</a>
+                    <a href="../index.html#proyectos">Proyectos</a>
+                    <a href="../index.html#experiencia">Experiencia</a>
+                    <a href="../blog/">Blog</a>
+                    <a href="../index.html#contacto">Contacto</a>
+                    <a href="../assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download>
+                        <i class="fa-solid fa-download"></i> CV
+                    </a>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </header>
+
+        <main>
+            <section id="blog-archive" class="sec">
+                
+                <h1 class="reveal blog-header-title">Blog</h1>
+                <p class="reveal blog-header-subtitle">
+                    Artículos, tutoriales y reflexiones sobre mis proyectos y aprendizajes en el desarrollo de software.
+                </p>
+                <div class="grid">
+                    <article class="card reveal">
+                        <div class="thumb">
+                            <img  class="blur-load" src="../assets/blur/nfcGeolocalizacionBlog-blur.webp" data-full="../assets/nfcGeolocalizacionBlog.webp" srcset="../assets/responsive/nfcGeolocalizacionBlog-600.webp 600w, ../assets/nfcGeolocalizacionBlog.webp 959w" sizes="(max-width: 768px) 600px, 959px" width="959" height="516" alt="App Control Horario" loading="lazy" decoding="async">
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3>Guía Completa: Implementar Fichajes con NFC y Geolocalización en Flutter</h3>
+                            <div class="blog-meta">
+                                <i class="fa-solid fa-calendar"></i>
+                                Publicado el 14 de noviembre, 2025
+                            </div>
+                            <p>Para mi proyecto RiberPublic Fichajes, el requisito principal era asegurar que un empleado fichaba en la ubicación correcta. Esto requería leer un tag NFC y, en ese mismo instante, capturar la geolocalización. Aquí explico cómo lo hice.</p>
+                            <div class="actions">
+                                <a class="btn small info" 
+                                aria-label="Leer más sobre la guía de Flutter y NFC" 
+                                href="nfcGeoFlutter/">Leer más</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    </div>
+            </section>
+        </main>
+        <footer class="sec">
+            <div class="sep"></div>
+            <div class="footer-text" >
+                <div class="footer-brand">
+                    <span class="brand-dot"></span>
+                    <strong>Adrián Alonso Pérez</strong>
+                </div>
+                <small>
+                    © <span id="y"></span> — Hecho por Adrián Alonso Pérez.
+                </small>
+            </div>
+        </footer>
+        
+        <script src="../main.js" defer></script>
+    </body>
 </html>

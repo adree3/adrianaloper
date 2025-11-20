@@ -101,9 +101,9 @@ function initCommonLogic() {
             if (window.innerWidth > 780) return;
             const current = window.pageYOffset;
             if (current > lastScroll && current > 80) {
-                nav.classList.add("hide");
+                headerEl.classList.add("hide");
             } else {
-                nav.classList.remove("hide");
+                headerEl.classList.remove("hide");
             }
             lastScroll = current;
         });
@@ -124,9 +124,25 @@ function initCommonLogic() {
 
     // Inicializar Lazy Loading Real
     initRealLazyLoading();
+
+    // Inicializar boton atrás inteligente
+    initSmartBackButtons();
 }
 
 /* FUNCIONES AUXILIARES */
+// Botones Atrás Inteligentes
+function initSmartBackButtons() {
+    const backBtns = document.querySelectorAll('.back-btn');
+    backBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (window.history.length > 1) {
+                e.preventDefault();
+                window.history.back();
+            }
+        });
+    });
+}
+
 // Lazy Loading con IntersectionObserver
 function initRealLazyLoading() {
     const imageObserver = new IntersectionObserver((entries, observer) => {

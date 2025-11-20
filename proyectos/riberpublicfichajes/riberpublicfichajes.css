@@ -23,6 +23,8 @@ body {
   backdrop-filter: blur(10px);
   padding: 10px 18px;
   min-height: 76px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
 
 .project-header h1 {
@@ -50,6 +52,10 @@ body {
   to {
     width: 100%;
   }
+}
+
+.project-header.hide {
+  transform: translateY(-100%);
 }
 
 /* =========================
@@ -101,7 +107,7 @@ body {
    HERO Y CARRUSEL (ESCRITORIO)
    ========================= */
 .project-hero {
-  margin: 100px auto 0;
+  margin: 90px auto 0;
   max-width: var(--max);
   border-radius: var(--radius);
   overflow: hidden;
