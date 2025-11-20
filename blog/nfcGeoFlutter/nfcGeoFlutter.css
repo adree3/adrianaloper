@@ -1,3 +1,14 @@
+body {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards; 
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 .project-header {
   position: fixed;
   top: 0;
@@ -10,15 +21,18 @@
   background: color-mix(in oklab, var(--bg) 70%, transparent);
   border-bottom: 1px solid rgba(255, 255, 255, .08);
   backdrop-filter: blur(10px);
-  padding: 14px 18px;
+  padding: 10px 18px;
+  min-height: 76px;
+  box-sizing: border-box;
   transition: transform 0.3s ease;
 }
 
 .project-header h1 {
-  font-size: 1.1rem;
+  font-size: clamp(1.15rem, 4vw, 1.5rem);
   font-weight: 800;
   position: relative;
-  
+  margin: 0; 
+  line-height: 1.2;
 }
 
 .project-header h1::after {
@@ -38,6 +52,10 @@
   to {
     width: 100%;
   }
+}
+
+.project-header.hide {
+  transform: translateY(-100%);
 }
 
 .back-btn {
@@ -160,4 +178,15 @@
 strong {
   color: var(--accent-2);
   font-weight: bold;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
 }

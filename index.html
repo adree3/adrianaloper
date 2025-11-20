@@ -6,7 +6,6 @@
         <title>Adrián Alonso Pérez — Desarrollador Backend Java en Valladolid</title>
         <meta name="description" content="Desarrollador Backend y Full Stack en Valladolid. Especializado en Java, Spring Boot, Angular, Flutter y Python. Portafolio de proyectos y contacto.">
         <meta name="author" content="Adrián Alonso Pérez">
-        <meta name="keywords" content="desarrollador, backend, java, spring boot, portfolio, Valladolid, desarrollador software, fullstack">
         <link rel="canonical" href="https://adree3.github.io/adrianaloper/">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +46,7 @@
         </script>
     </head>
     <body>
-        <nav class="nav">
+        <header class="nav">
             <div class="nav-wrap">
                 <a href="#inicio" class="brand" aria-label="Adrián Alonso Pérez - Volver al inicio">
                     <span class="brand-dot"></span>
@@ -62,7 +61,9 @@
                     <a href="#experiencia">Experiencia</a>
                     <a href="blog/">Blog</a>
                     <a href="#contacto">Contacto</a>
-                    <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download><i class="fa-solid fa-download"></i> CV</a>
+                    <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" style="color: white;" data-label="Descargar CV" download>
+                        <i class="fa-solid fa-download"></i> CV
+                    </a>
                 </div>
             </div>
 
@@ -71,7 +72,7 @@
                     <span class="brand-dot"></span>
                     <span class="brand-name">Adrián Alonso Pérez</span>
                     <button class="close-menu" aria-label="Cerrar menú">
-                    <i class="fa-solid fa-xmark"></i>
+                        <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="side-links">
@@ -81,13 +82,13 @@
                     <a href="blog/">Blog</a>
                     <a href="#contacto">Contacto</a>
                     <a href="assets/AdrianAlonsoCV.pdf" class="cv-btn" target="_blank" download>
-                    <i class="fa-solid fa-download"></i> CV
+                        <i class="fa-solid fa-download"></i> CV
                     </a>
                 </div>
             </div>
 
             <div class="overlay"></div>
-        </nav>
+        </header>
 
         <main>
             <header id="inicio" class="hero">
@@ -114,11 +115,10 @@
                         <span class="tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
                         <span class="tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>
                     </div>
-
                 </div>
 
                 <div class="avatar reveal">
-                    <img class="blur-load" src="assets/blur/adrian-blur.webp" data-full="assets/adrian.webp" width="1296" height="1944" alt="Adrián Alonso Pérez" loading="lazy" decoding="async">                
+                    <img src="assets/adrian.webp" width="1296" height="1944" alt="Adrián Alonso Pérez" fetchpriority="high" decoding="async">                
                     <a href="#contacto"><div class="opentowork-banner">#OpenToWork</div></a>
                 </div>
             </header>
@@ -146,7 +146,6 @@
                     </p>
                 </div>
             </section>
-
 
             <section id="proyectos" class="sec">
                 <h2 class="reveal">Proyectos</h2>
@@ -219,31 +218,28 @@
             <section id="experiencia" class="sec">
                 <h2 class="reveal">Experiencia</h2>
                 <div class="timeline">
-                <div class="i reveal">
-                    <h3>Curso de Especialización: Inteligencia Artificial y Big Data</h3>
-                    <div class="meta">IES Ribera de Castilla · 09/2025 - En curso</div>
-                </div>
-                <div class="i reveal">
-                    <h3>Desarrollador de Software — Getronics</h3>
-                    <div class="meta">4 meses · Java + Spring Boot · Angular (Proyecto “Stilus”, Junta de Castilla y León)</div>
-                    <p>Desarrollo de backend (APIs REST, seguridad, validaciones) y apoyo en el front con Angular. Trabajo colaborativo en equipo ágil.</p>
-                </div>
-                <div class="i reveal">
-                    <h3>Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
-                    <div class="meta">IES Ribera de Castilla · 09/2023 - 06/2025</div>
-                </div>
-
-                <div class="i reveal">
-                    <h3>Técnico Informático — Sisconect</h3>
-                    <div class="meta">4 meses · Instalador y mantenimiento de equipos informáticos e impresoras</div>
-                    <p>Instalación y reparación de equipos en ruta, diagnóstico y resolución de incidencias.</p>
-                </div>
-                <div class="i reveal">
-                    <h3>Grado Medio: Sistemas Microinformáticos y Redes (SMR)</h3>
-                    <div class="meta">IES Ribera de Castilla · 09/2021 - 06/2023</div>
-                </div>
-                
-
+                    <div class="i reveal">
+                        <h3>Curso de Especialización: Inteligencia Artificial y Big Data</h3>
+                        <div class="meta">IES Ribera de Castilla · 09/2025 - En curso</div>
+                    </div>
+                    <div class="i reveal">
+                        <h3>Desarrollador de Software — Getronics</h3>
+                        <div class="meta">4 meses · Java + Spring Boot · Angular (Proyecto “Stilus”, Junta de Castilla y León)</div>
+                        <p>Desarrollo de backend (APIs REST, seguridad, validaciones) y apoyo en el front con Angular. Trabajo colaborativo en equipo ágil.</p>
+                    </div>
+                    <div class="i reveal">
+                        <h3>Grado Superior: Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+                        <div class="meta">IES Ribera de Castilla · 09/2023 - 06/2025</div>
+                    </div>
+                    <div class="i reveal">
+                        <h3>Técnico Informático — Sisconect</h3>
+                        <div class="meta">4 meses · Instalador y mantenimiento de equipos informáticos e impresoras</div>
+                        <p>Instalación y reparación de equipos en ruta, diagnóstico y resolución de incidencias.</p>
+                    </div>
+                    <div class="i reveal">
+                        <h3>Grado Medio: Sistemas Microinformáticos y Redes (SMR)</h3>
+                        <div class="meta">IES Ribera de Castilla · 09/2021 - 06/2023</div>
+                    </div>
                 </div>
             </section>
 
@@ -253,23 +249,23 @@
                     <div class="panel reveal contact-main">
                         <p class="lead">Si tienes alguna oportunidad en la que pueda encajar o quieres mas información, no dudes en conactar conmigo.</p>
                         <div class="contact-icon-row">
-                        <a class="icon-card" href="https://www.linkedin.com/in/adrian-alonso-perez-38894a2aa" target="_blank" aria-label="LinkedIn"data-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="assets/AdrianAlonsoCV.pdf" class="cv-main-btn" target="_blank" data-label="Descargar CV" download >
-                            <i class="fa-solid fa-download"></i> CV
-                        </a>
-                        <a class="icon-card" href="https://github.com/adree3" target="_blank" data-label="GitHub" aria-label="GitHub">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
+                            <a class="icon-card" href="https://www.linkedin.com/in/adrian-alonso-perez-38894a2aa" target="_blank" aria-label="LinkedIn"data-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="assets/AdrianAlonsoCV.pdf" class="cv-main-btn" target="_blank" data-label="Descargar CV" download >
+                                <i class="fa-solid fa-download"></i> CV
+                            </a>
+                            <a class="icon-card" href="https://github.com/adree3" target="_blank" data-label="GitHub" aria-label="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
 
-                    <div class="contact-email-card">
-                        <span id="email-text">adrianalonso200@gmail.com</span>
-                        <button id="copy-email" aria-label="Copiar correo">
-                        <i class="fa-regular fa-copy"></i>
-                        </button>
-                    </div>
+                        <div class="contact-email-card">
+                            <span id="email-text">adrianalonso200@gmail.com</span>
+                            <button id="copy-email" aria-label="Copiar correo">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
 
                     </div>
                     <form class="panel reveal" id="contact-form">
@@ -290,8 +286,8 @@
                     </form>
                 </div>
             </section>
-
         </main>
+
         <footer class="sec">
             <div class="sep"></div>
             <div class="footer-text" >
@@ -304,6 +300,7 @@
                 </small>
             </div>
         </footer>
+
         <a href="assets/AdrianAlonsoCV.pdf" 
             class="fab-cv" 
             target="_blank" 
