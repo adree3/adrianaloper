@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://adree3.github.io/adrianaloper/</loc>
+    <loc>https://adrianaloper.es/</loc>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2025-11-08</lastmod> 
+    <lastmod>2025-12-04</lastmod>
   </url>
+
   <url>
-    <loc>https://adree3.github.io/adrianaloper/proyectos/afisla/</loc>
+    <loc>https://adrianaloper.es/blog/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://adrianaloper.es/blog/nfcGeoFlutter/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-11-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://adrianaloper.es/proyectos/riberpublicfichajes/</loc>
     <priority>0.8</priority>
     <changefreq>yearly</changefreq>
   </url>
+
   <url>
-    <loc>https://adree3.github.io/adrianaloper/proyectos/riberpublicfichajes/</loc>
+    <loc>https://adrianaloper.es/proyectos/afisla/</loc>
     <priority>0.8</priority>
     <changefreq>yearly</changefreq>
   </url>
