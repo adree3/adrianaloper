@@ -833,7 +833,7 @@ footer.sec {
   
 }
 
-@media (min-width: 781px) {
+@media (min-width: 866px) {
   .side-menu,
   .overlay {
     display: none !important;
@@ -880,7 +880,7 @@ footer.sec {
   color: #fff;
 }
 
-@media (min-width: 781px) {
+@media (min-width: 866px) {
   .fab-cv {
     display: none;
   }

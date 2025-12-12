@@ -5,28 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <title>Guía: Fichajes con NFC y Geolocalización en Flutter | Adrián Alonso Pérez</title>
-    <meta name="description" content="Tutorial paso a paso sobre cómo implementar la lectura de tags NFC y capturar la geolocalización de forma simultánea en una app de Flutter.">
+    <meta name="description" content="Tutorial paso a paso sobre cómo implementar la lectura de tags NFC y capturar la geolocalización simultánea en una app de Flutter (Dart).">
+    <meta name="author" content="Adrián Alonso Pérez">
     
-    <link rel="canonical" href="https://adree3.github.io/adrianaloper/blog/nfcGeoFlutter/">
+    <link rel="canonical" href="https://adrianaloper.es/blog/nfcGeoFlutter/">
+
+    <meta property="og:title" content="Guía: Fichajes con NFC y Geolocalización en Flutter">
+    <meta property="og:description" content="Aprende a validar la ubicación y el tag NFC secuencialmente para fichajes seguros.">
+    <meta property="og:image" content="https://adrianaloper.es/assets/nfcGeolocalizacionBlog.webp">
+    <meta property="og:url" content="https://adrianaloper.es/blog/nfcGeoFlutter/">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2025-11-16">
+    <meta property="article:author" content="Adrián Alonso Pérez">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
     
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="nfcGeoFlutter.css">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"></noscript>
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap"></noscript>
+    
+    <link rel="preload" href="../../style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../../style.css"></noscript>
+    
+    <link rel="preload" href="nfcGeoFlutter.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="nfcGeoFlutter.css"></noscript>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
     <link rel="shortcut icon" href="../../assets/icons/favicon.ico">
+    <meta name="theme-color" content="#0b0e13">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "Guía: Fichajes con NFC y Geolocalización en Flutter",
-      "author": { "@type": "Person", "name": "Adrián Alonso Pérez", "url": "https://adree3.github.io/adrianaloper/" },
-      "datePublished": "2025-11-16", "image": "https://adree3.github.io/adrianaloper/assets/nfcGeolocalizacionBlog.webp"
+      "author": { 
+        "@type": "Person", 
+        "name": "Adrián Alonso Pérez", 
+        "url": "https://adrianaloper.es/" 
+      },
+      "datePublished": "2025-11-16",
+      "image": "https://adrianaloper.es/assets/nfcGeolocalizacionBlog.webp",
+      "description": "Tutorial sobre implementación de NFC y GPS en Flutter."
     }
     </script>
 </head>
